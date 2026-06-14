@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priya & Shivukumar – Witness the Sacred Union!</title>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💕💍</text></svg>">
+    <meta name="description" content="You are cordially invited to the engagement ceremony of Priya Deshmukh & Shivukumar Kadari on 8th July 2026.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Great+Vibes&family=Noto+Sans+Kannada:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --color-background-primary: #FCFBF8;
+            --color-background-secondary: #F3EFE6;
+            --color-primary-accent: #3A4F32;
+            --color-secondary-accent: #B59A6D;
+            --color-text-primary: #2C2C2C;
+            --color-text-secondary: #5C5C5C;
+            --color-borders-dividers: #DCD3C6;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--color-background-primary);
+            color: var(--color-text-primary);
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Great Vibes', cursive;
+            color: var(--color-primary-accent);
+        }
+
+        .fade-in { animation: fadeIn 1.2s ease-in-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* ===== CARD OPENING GATE ===== */
+        .card-gate {
+            perspective: 1800px;
+        }
+
+        .card-wrapper {
+            width: min(380px, 85vw);
+            height: min(540px, 78vh);
+            position: relative;
+            transform-style: preserve-3d;
+        }
+
+        /* Inner card (background) */
+        .card-inner {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(170deg, #FAF5EB 0%, #F0E8D8 100%);
+            border-radius: 8px;
+            border: 1px solid #DCD3C6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 28px;
+            text-align: center;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.15);
+        }
+
+        .card-inner .blessing-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 17px;
+            font-style: italic;
+            color: #3A4F32;
+            line-height: 1.7;
+            margin-bottom: 24px;
+            opacity: 0.85;
+        }
+
+        .card-inner .names-reveal {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(36px, 8vw, 52px);
+            color: #3A4F32;
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+
+        .card-inner .date-reveal {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 15px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #B59A6D;
+            font-weight: 600;
+        }
+
+        .card-inner .wedding-day-text {
+            font-family: 'Great Vibes', cursive;
+            font-size: 28px;
+            color: #3A4F32;
+            margin-top: 20px;
+        }
+
+        /* Left flap */
+        .card-flap-left {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, #3A4F32 0%, #4A6340 40%, #3A4F32 100%);
+            border-radius: 8px 0 0 8px;
+            transform-origin: left center;
+            transition: transform 1.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+            z-index: 10;
+            overflow: hidden;
+            box-shadow: 2px 0 15px rgba(0,0,0,0.2);
+        }
+
+        .card-flap-right {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(225deg, #3A4F32 0%, #4A6340 40%, #3A4F32 100%);
+            border-radius: 0 8px 8px 0;
+            transform-origin: right center;
+            transition: transform 1.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+            z-index: 10;
+            overflow: hidden;
+            box-shadow: -2px 0 15px rgba(0,0,0,0.2);
+        }
+
+        /* Gold foil patterns on flaps */
+        .flap-pattern {
+            position: absolute;
+            inset: 0;
+            opacity: 0.3;
+            background-image:
+                radial-gradient(ellipse at 30% 20%, rgba(181,154,109,0.6) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(181,154,109,0.5) 0%, transparent 45%),
+                radial-gradient(ellipse at 50% 50%, rgba(181,154,109,0.3) 0%, transparent 60%);
+        }
+
+        /* SVG floral overlay */
+        .flap-floral {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+        }
+
+        .flap-floral svg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.35;
+        }
+
+        /* Wax seal */
+        .wax-seal {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: radial-gradient(ellipse at 35% 35%, #5a7050, #3A4F32 60%, #2d3e27);
+            box-shadow:
+                0 3px 10px rgba(0,0,0,0.3),
+                inset 0 1px 3px rgba(255,255,255,0.15),
+                inset 0 -2px 6px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 20;
+            border: 2px solid rgba(181,154,109,0.3);
+        }
+
+        .wax-seal span {
+            font-family: 'Great Vibes', cursive;
+            font-size: 26px;
+            color: #B59A6D;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .tap-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-20deg);
+            z-index: 25;
+            font-family: 'Great Vibes', cursive;
+            font-size: 16px;
+            color: rgba(255,255,255,0.85);
+            white-space: nowrap;
+            margin-top: 52px;
+            margin-left: 30px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+            animation: tapPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes tapPulse {
+            0%, 100% { opacity: 0.7; transform: translate(-50%, -50%) rotate(-20deg) scale(1); }
+            50% { opacity: 1; transform: translate(-50%, -50%) rotate(-20deg) scale(1.05); }
+        }
+
+        /* Card opened state */
+        .card-wrapper.opened .card-flap-left {
+            transform: rotateY(-160deg);
+        }
+        .card-wrapper.opened .card-flap-right {
+            transform: rotateY(160deg);
+        }
+        .card-wrapper.opened .wax-seal {
+            transition: opacity 0.4s ease 0.3s, transform 0.6s ease 0.2s;
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.5);
+        }
+        .card-wrapper.opened .tap-text {
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        /* Gate fade out */
+        .card-gate.dismissed {
+            transition: opacity 0.8s ease 0.8s, visibility 0.8s ease 0.8s;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        /* ===== FLOATING PETALS ===== */
+        .petal-gold {
+            position: absolute;
+            border-radius: 50% 0 50% 0;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        @keyframes petalFloat {
+            0% { opacity: 0; transform: translateY(-20px) rotate(0deg) scale(0.5); }
+            15% { opacity: 0.5; }
+            85% { opacity: 0.3; }
+            100% { opacity: 0; transform: translateY(100vh) rotate(720deg) scale(0.3); }
+        }
+
+        /* ===== TIMELINE ===== */
+        .timeline-content {
+            max-height: 200px;
+            overflow: hidden;
+            transition: max-height 0.8s ease-in-out;
+            position: relative;
+        }
+
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 60px;
+            background: linear-gradient(to top, #ffffff, transparent);
+            pointer-events: none;
+        }
+
+        .timeline-item.is-expanded .timeline-content { max-height: 1000px; }
+        .timeline-item.is-expanded .timeline-content::after { display: none; }
+        .timeline-item { cursor: pointer; position: relative; }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            bottom: 40px; left: 50%; transform: translateX(-50%);
+            width: 0; height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 8px solid var(--color-secondary-accent);
+            opacity: 0.8;
+            animation: bounce 2s infinite;
+            z-index: 20; pointer-events: none;
+        }
+        .timeline-item.is-expanded::after { display: none; }
+
+        .timeline-item::before {
+            content: 'Tap to expand';
+            position: absolute;
+            bottom: 16px; left: 50%; transform: translateX(-50%);
+            font-size: 14px; font-weight: 600;
+            color: var(--color-secondary-accent);
+            opacity: 0.8;
+            z-index: 20; pointer-events: none; white-space: nowrap;
+            font-family: 'Cormorant Garamond', serif;
+            letter-spacing: 0.05em;
+        }
+        .timeline-item.is-expanded::before { display: none; }
+
+        /* ===== MAP BUTTON ===== */
+        .map-button-premium {
+            display: inline-flex;
+            align-items: center; justify-content: center; gap: 8px;
+            padding: 10px 28px;
+            background: linear-gradient(135deg, var(--color-primary-accent), var(--color-secondary-accent));
+            color: #ffffff; border-radius: 9999px;
+            font-size: 0.875rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600; letter-spacing: 0.05em;
+            text-transform: uppercase; text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 12px rgba(181, 154, 109, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .map-button-premium:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(181, 154, 109, 0.5);
+            background: linear-gradient(135deg, var(--color-secondary-accent), var(--color-primary-accent));
+        }
+        .map-button-premium svg { width: 16px; height: 16px; transition: transform 0.4s ease; }
+        .map-button-premium:hover svg { transform: rotate(15deg) scale(1.2); }
+
+        /* ===== SCROLL INDICATOR ===== */
+        .scroll-indicator { animation: bounce 2s infinite; opacity: 0.9; }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { opacity: 0.8; transform: translateY(0); }
+            40% { opacity: 1; transform: translateY(10px); }
+            60% { opacity: 1; transform: translateY(5px); }
+        }
+
+        /* ===== HERO BG ===== */
+        .hero-bg-image { animation: slowZoom 30s ease-in-out infinite alternate; }
+        @keyframes slowZoom { 0% { transform: scale(1); } 100% { transform: scale(1.08); } }
+
+        /* ===== LANGUAGE TOGGLE ===== */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 90;
+            background: rgba(58,79,50,0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(181,154,109,0.3);
+            color: #B59A6D;
+            padding: 8px 16px;
+            border-radius: 9999px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: none; /* hidden until gate opens */
+        }
+        .lang-toggle:hover {
+            background: rgba(58,79,50,1);
+            transform: scale(1.05);
+        }
+        .lang-toggle.visible { display: block; }
+
+        /* Kannada text hidden by default */
+        .kn-text { display: none; }
+        body.kannada .en-text { display: none; }
+        body.kannada .kn-text { display: block; }
+        body.kannada .kn-inline { display: inline !important; }
+        body.kannada .en-inline { display: none !important; }
+        .kn-inline { display: none; }
+        .en-inline { display: inline; }
+
+        /* ===== LAYERED INVITATION CARD ANIMATIONS ===== */
+        @keyframes cardParticleFloat {
+            0% { transform: translateY(0) translateX(0) scale(0.8); opacity: 0.2; }
+            50% { opacity: 0.8; }
+            100% { transform: translateY(-40px) translateX(20px) scale(1.2); opacity: 0.1; }
+        }
+        .card-particle {
+            animation: cardParticleFloat 6s ease-in-out infinite alternate;
+        }
+        @keyframes swayLeft {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(1deg) scale(1.01); }
+        }
+        @keyframes swayRight {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(-1.5deg) scale(1.005); }
+        }
+        .animate-sway-left { animation: swayLeft 6s ease-in-out infinite alternate; }
+        .animate-sway-right { animation: swayRight 5s ease-in-out infinite alternate; }
+        @keyframes floatBirds {
+            0%, 100% { transform: translateY(0) translateX(0) scale(1); }
+            50% { transform: translateY(-6px) translateX(-4px) scale(1.02); }
+        }
+        .animate-float-birds { animation: floatBirds 8s ease-in-out infinite alternate; }
+        @keyframes coupleEntrance {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes coupleBreath {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.006) translateY(-1px); }
+        }
+        .animate-couple-entrance { animation: coupleEntrance 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .animate-couple-breath { animation: coupleBreath 4s ease-in-out infinite alternate; }
+        @keyframes ambientGlow {
+            0%, 100% { opacity: 0.15; }
+            50% { opacity: 0.35; }
+        }
+        .animate-ambient-glow { animation: ambientGlow 7s ease-in-out infinite alternate; }
+        @keyframes textReveal {
+            0% { opacity: 0; transform: translateY(15px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-text-reveal-1 { opacity: 0; animation: textReveal 1s cubic-bezier(0.25, 1, 0.5, 1) 0.6s forwards; }
+        .animate-text-reveal-2 { opacity: 0; animation: textReveal 1.2s cubic-bezier(0.25, 1, 0.5, 1) 1.0s forwards; }
+        .animate-text-reveal-3 { opacity: 0; animation: textReveal 1.2s cubic-bezier(0.25, 1, 0.5, 1) 1.4s forwards; }
+
+        input:focus, textarea:focus, select:focus {
+            box-shadow: 0 1px 0 0 var(--color-secondary-accent);
+            border-color: var(--color-secondary-accent);
+        }
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bg-primary': 'var(--color-background-primary)',
+                        'bg-secondary': 'var(--color-background-secondary)',
+                        'primary-accent': 'var(--color-primary-accent)',
+                        'secondary-accent': 'var(--color-secondary-accent)',
+                        'text-primary': 'var(--color-text-primary)',
+                        'text-secondary': 'var(--color-text-secondary)',
+                        'borders-dividers': 'var(--color-borders-dividers)',
+                    },
+                    fontFamily: {
+                        headings: ['Great Vibes', 'cursive'],
+                        body: ['Cormorant Garamond', 'serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 15px 40px -10px rgba(0,0,0,0.08)',
+                    }
+                },
+            },
+        };
+    </script>
+</head>
+
+<body class="bg-bg-primary text-text-primary font-body overflow-x-hidden">
+
+    <!-- ===== LANGUAGE TOGGLE ===== -->
+    <button class="lang-toggle" id="langToggle" onclick="toggleLanguage()">
+        <span class="en-inline">ಕನ್ನಡ</span>
+        <span class="kn-inline">English</span>
+    </button>
+
+    <!-- ===== AUDIO TOGGLE ===== -->
+    <button id="audio-toggle" class="fixed bottom-6 right-6 bg-primary-accent hover:bg-opacity-90 hover:scale-110 text-white p-4 rounded-full transition-all duration-300 z-[100] shadow-xl border border-white/20 backdrop-blur-sm opacity-90 hover:opacity-100" style="display:none;">
+        <svg id="volume-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path id="volume-on" d="M11 5L6 9H2v6h4l5 4V5zM19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"></path>
+            <path id="volume-off" d="M11 5L6 9H2v6h4l5 4V5zM23 9l-6 6M17 9l6 6" class="hidden"></path>
+        </svg>
+    </button>
+
+    <!-- ============================================== -->
+    <!-- ===== CARD OPENING ENTRY GATE ===== -->
+    <!-- ============================================== -->
+    <div id="card-gate" class="card-gate fixed inset-0 z-[200] flex items-center justify-center bg-gradient-to-b from-[#1a1a18] via-[#252520] to-[#1a1a18] cursor-pointer" onclick="openCard()">
+
+        <!-- Floating petals behind card -->
+        <div id="gate-petals" class="absolute inset-0 overflow-hidden pointer-events-none"></div>
+
+        <!-- The Card -->
+        <div class="card-wrapper" id="cardWrapper">
+
+            <!-- Inner card content (revealed when flaps open) -->
+            <div class="card-inner">
+                <p class="blessing-text">With the divine blessings of<br>Lord Ganesha, we invite you<br>to celebrate the union of</p>
+                <p class="names-reveal">Priya</p>
+                <span style="font-family:'Great Vibes',cursive; font-size:28px; color:#B59A6D;">&</span>
+                <p class="names-reveal" style="margin-top: -4px;">Shivukumar</p>
+                <p class="date-reveal" style="margin-top: 16px;">8th July 2026</p>
+                <p class="wedding-day-text">Engagement Day</p>
+            </div>
+
+            <!-- LEFT FLAP -->
+            <div class="card-flap-left">
+                <div class="flap-pattern"></div>
+                <div class="flap-floral">
+                    <svg viewBox="0 0 200 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Lily of the valley stems and flowers -->
+                        <path d="M160 580 C150 500, 130 420, 120 350 C110 280, 100 220, 90 160 C85 130, 80 100, 75 70" stroke="#B59A6D" stroke-width="1.5" fill="none" opacity="0.5"/>
+                        <path d="M140 560 C130 490, 120 430, 115 380" stroke="#B59A6D" stroke-width="1" fill="none" opacity="0.4"/>
+                        <!-- Leaves -->
+                        <ellipse cx="120" cy="500" rx="35" ry="60" transform="rotate(-25 120 500)" fill="#B59A6D" opacity="0.15"/>
+                        <ellipse cx="90" cy="440" rx="28" ry="50" transform="rotate(15 90 440)" fill="#B59A6D" opacity="0.12"/>
+                        <ellipse cx="140" cy="390" rx="22" ry="40" transform="rotate(-10 140 390)" fill="#B59A6D" opacity="0.1"/>
+                        <!-- Bell flowers -->
+                        <circle cx="95" cy="170" r="12" fill="#B59A6D" opacity="0.2"/>
+                        <circle cx="105" cy="200" r="14" fill="#B59A6D" opacity="0.18"/>
+                        <circle cx="110" cy="240" r="13" fill="#B59A6D" opacity="0.22"/>
+                        <circle cx="115" cy="280" r="15" fill="#B59A6D" opacity="0.16"/>
+                        <circle cx="80" cy="130" r="10" fill="#B59A6D" opacity="0.15"/>
+                        <circle cx="100" cy="310" r="11" fill="#B59A6D" opacity="0.2"/>
+                        <!-- Decorative dots -->
+                        <circle cx="70" cy="100" r="4" fill="#B59A6D" opacity="0.25"/>
+                        <circle cx="60" cy="80" r="3" fill="#B59A6D" opacity="0.2"/>
+                        <circle cx="85" cy="60" r="5" fill="#B59A6D" opacity="0.18"/>
+                        <circle cx="130" cy="330" r="8" fill="#B59A6D" opacity="0.12"/>
+                        <circle cx="150" cy="360" r="6" fill="#B59A6D" opacity="0.15"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- RIGHT FLAP -->
+            <div class="card-flap-right">
+                <div class="flap-pattern"></div>
+                <div class="flap-floral">
+                    <svg viewBox="0 0 200 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M40 580 C50 500, 70 420, 80 350 C90 280, 100 220, 110 160 C115 130, 120 100, 125 70" stroke="#B59A6D" stroke-width="1.5" fill="none" opacity="0.5"/>
+                        <path d="M60 560 C70 490, 80 430, 85 380" stroke="#B59A6D" stroke-width="1" fill="none" opacity="0.4"/>
+                        <ellipse cx="80" cy="500" rx="35" ry="60" transform="rotate(25 80 500)" fill="#B59A6D" opacity="0.15"/>
+                        <ellipse cx="110" cy="440" rx="28" ry="50" transform="rotate(-15 110 440)" fill="#B59A6D" opacity="0.12"/>
+                        <ellipse cx="60" cy="390" rx="22" ry="40" transform="rotate(10 60 390)" fill="#B59A6D" opacity="0.1"/>
+                        <circle cx="105" cy="170" r="12" fill="#B59A6D" opacity="0.2"/>
+                        <circle cx="95" cy="200" r="14" fill="#B59A6D" opacity="0.18"/>
+                        <circle cx="90" cy="240" r="13" fill="#B59A6D" opacity="0.22"/>
+                        <circle cx="85" cy="280" r="15" fill="#B59A6D" opacity="0.16"/>
+                        <circle cx="120" cy="130" r="10" fill="#B59A6D" opacity="0.15"/>
+                        <circle cx="100" cy="310" r="11" fill="#B59A6D" opacity="0.2"/>
+                        <circle cx="130" cy="100" r="4" fill="#B59A6D" opacity="0.25"/>
+                        <circle cx="140" cy="80" r="3" fill="#B59A6D" opacity="0.2"/>
+                        <circle cx="115" cy="60" r="5" fill="#B59A6D" opacity="0.18"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Wax Seal (on top of both flaps) -->
+            <div class="wax-seal" id="waxSeal">
+                <span>P&S</span>
+            </div>
+
+            <!-- Tap to Reveal text -->
+            <div class="tap-text" id="tapText">Tap To Reveal</div>
+        </div>
+
+        <!-- Bottom "Engagement Day" watermark -->
+        <p class="absolute bottom-8 left-1/2 -translate-x-1/2 text-[#B59A6D] font-headings text-2xl opacity-40 z-10" style="font-family:'Great Vibes',cursive;">Engagement Day</p>
+    </div>
+
+    <!-- ============================================== -->
+    <!-- ===== MAIN CONTENT ===== -->
+    <!-- ============================================== -->
+    <div id="main-content" class="hidden fade-in">
+
+        <!-- ===== HERO SECTION ===== -->
+        <section class="relative min-h-[100dvh] flex items-center justify-center text-center overflow-hidden py-16">
+            <img src="images/hero-bg.png" alt="" class="absolute inset-0 w-full h-full object-cover object-center z-0 opacity-70 hero-bg-image">
+            <div class="absolute inset-0 bg-black/15 z-0"></div>
+
+            <div class="relative z-10 w-full max-w-[90%] md:max-w-md mx-auto rounded-[2rem] backdrop-blur-xl bg-gradient-to-b from-white/95 to-white/90 shadow-2xl border border-white/80 pt-12 pb-16 px-6 mt-8 flex flex-col items-center">
+                
+                <p class="text-primary-accent text-sm font-body mb-8 font-bold tracking-[0.1em] uppercase opacity-90 text-center px-4">
+                    <span class="en-inline">Srirasthu! Shubhamasthu!! Avighnamasthu!!!</span>
+                    <span class="kn-inline">ಶ್ರೀರಸ್ತು! ಶುಭಮಸ್ತು!! ಅವಿಘ್ನಮಸ್ತು!!!</span>
+                </p>
+
+                <h1 class="text-primary-accent text-[3.5rem] md:text-[5rem] font-headings mb-0 drop-shadow-sm leading-none">Priya</h1>
+                <span class="text-4xl md:text-5xl text-secondary-accent font-headings my-3 drop-shadow-sm">&</span>
+                <h1 class="text-primary-accent text-[3.5rem] md:text-[5rem] font-headings mb-8 drop-shadow-sm leading-none">Shivukumar</h1>
+                
+                <div class="w-full max-w-[90%]">
+                    <p class="text-text-primary text-xl md:text-2xl font-body italic mb-4">
+                        <span class="en-inline">Together, we begin our forever.</span>
+                        <span class="kn-inline">ಒಟ್ಟಿಗೆ, ನಾವು ನಮ್ಮ ಶಾಶ್ವತತೆಯನ್ನು ಪ್ರಾರಂಭಿಸುತ್ತೇವೆ.</span>
+                    </p>
+                    <p class="text-primary-accent text-sm md:text-base font-body lining-nums mb-6 font-semibold tracking-[0.2em] uppercase">8th July 2026</p>
+                </div>
+
+                <div class="w-full max-w-[85%] h-[1px] bg-borders-dividers mb-8"></div>
+
+                <!-- Countdown -->
+                <div id="countdown" class="w-full max-w-[80%] mx-auto grid grid-cols-2 gap-y-8 gap-x-6 pb-2">
+                    <div class="flex flex-col items-center">
+                        <span id="days" class="text-primary-accent text-[3rem] md:text-5xl font-semibold font-body leading-none lining-nums">00</span>
+                        <span class="text-text-secondary text-[0.7rem] md:text-xs tracking-widest mt-2 uppercase font-medium">
+                            <span class="en-inline">Days</span><span class="kn-inline">ದಿನಗಳು</span>
+                        </span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span id="hours" class="text-primary-accent text-[3rem] md:text-5xl font-semibold font-body leading-none lining-nums">00</span>
+                        <span class="text-text-secondary text-[0.7rem] md:text-xs tracking-widest mt-2 uppercase font-medium">
+                            <span class="en-inline">Hours</span><span class="kn-inline">ಗಂಟೆಗಳು</span>
+                        </span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span id="minutes" class="text-primary-accent text-[3rem] md:text-5xl font-semibold font-body leading-none lining-nums">00</span>
+                        <span class="text-text-secondary text-[0.7rem] md:text-xs tracking-widest mt-2 uppercase font-medium">
+                            <span class="en-inline">Mins</span><span class="kn-inline">ನಿಮಿಷಗಳು</span>
+                        </span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span id="seconds" class="text-primary-accent text-[3rem] md:text-5xl font-semibold font-body leading-none lining-nums">00</span>
+                        <span class="text-text-secondary text-[0.7rem] md:text-xs tracking-widest mt-2 uppercase font-medium">
+                            <span class="en-inline">Secs</span><span class="kn-inline">ಸೆಕೆಂಡುಗಳು</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="absolute -bottom-5 left-1/2 transform -translate-x-1/2 flex flex-col items-center z-20">
+                    <div class="bg-white/95 backdrop-blur-md shadow-md px-8 py-2.5 rounded-full border border-borders-dividers/50">
+                        <p class="text-primary-accent font-body text-xs tracking-[0.25em] uppercase font-bold">Scroll</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="absolute bottom-6 md:bottom-10 left-1/2 transform -translate-x-1/2 scroll-indicator z-10">
+                <svg class="w-6 h-6 text-white drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- ===== PARENTS BLESSINGS ===== -->
+        <section id="second-section" class="py-16 md:py-20 bg-bg-secondary text-center border-b border-borders-dividers">
+            <div class="container mx-auto px-6 max-w-2xl">
+                <h3 class="text-[2.5rem] md:text-5xl font-headings text-primary-accent mb-6 leading-tight">
+                    <span class="en-inline">With the Blessings of Our Beloved Parents</span>
+                    <span class="kn-inline">ನಮ್ಮ ಪ್ರೀತಿಯ ಹೆತ್ತವರ ಆಶೀರ್ವಾದದೊಂದಿಗೆ</span>
+                </h3>
+                
+                <div class="flex items-center justify-center opacity-60 mb-8">
+                    <div class="w-12 h-[1px] bg-secondary-accent"></div>
+                    <span class="text-secondary-accent mx-4 text-lg">✧</span>
+                    <div class="w-12 h-[1px] bg-secondary-accent"></div>
+                </div>
+
+                <div class="space-y-8 font-body text-lg md:text-xl text-text-secondary italic">
+                    <div>
+                        <p class="font-semibold text-primary-accent not-italic uppercase tracking-widest text-sm mb-2">
+                            <span class="en-inline">Bride's Parents</span><span class="kn-inline">ವಧುವಿನ ತಂದೆ ತಾಯಿ</span>
+                        </p>
+                        <p class="en-text">Nagendrarao Deshmukh & Sangeeta Deshmukh</p>
+                        <p class="kn-text leading-loose" style="font-family:'Noto Sans Kannada',sans-serif; font-size: 18px; font-style: normal; font-weight: 500;">ನಾಗೇಂದ್ರರಾವ್ ದೇಶಮುಖ್ ಮತ್ತು ಸಂಗೀತಾ ದೇಶಮುಖ್</p>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-primary-accent not-italic uppercase tracking-widest text-sm mb-2">
+                            <span class="en-inline">Groom's Parents</span><span class="kn-inline">ವರನ ತಂದೆ ತಾಯಿ</span>
+                        </p>
+                        <p class="en-text">Ishwar Kadari & Late Shaila</p>
+                        <p class="kn-text leading-loose" style="font-family:'Noto Sans Kannada',sans-serif; font-size: 18px; font-style: normal; font-weight: 500;">ಈಶ್ವರ್ ಕದರಿ ಮತ್ತು ದಿವಂಗತ ಶೈಲಾ</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== ENGAGEMENT EVENT ===== -->
+        <section class="py-20 md:py-28 bg-bg-primary">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 max-w-2xl mx-auto">
+                    <h2 class="text-[3.5rem] md:text-7xl font-headings mb-6 text-primary-accent">
+                        <span class="en-inline">The Celebration</span>
+                        <span class="kn-inline">ಸಮಾರಂಭ</span>
+                    </h2>
+                    <p class="text-xl md:text-2xl text-text-secondary font-body italic leading-relaxed">
+                        <span class="en-inline">A celebration of sacred tradition and joyful union, crafted with love for you to share in our joy.</span>
+                        <span class="kn-inline">ಪವಿತ್ರ ಸಂಪ್ರದಾಯ ಮತ್ತು ಆನಂದಕರ ಮಿಲನದ ಸಮಾರಂಭ, ನಿಮ್ಮ ಸಂತೋಷಕ್ಕಾಗಿ ಪ್ರೀತಿಯಿಂದ ರೂಪಿಸಲಾಗಿದೆ.</span>
+                    </p>
+                </div>
+
+                <div class="space-y-4 max-w-md mx-auto">
+                    <!-- Engagement Only -->
+                    <div>
+                        <!-- Layered Animated Invitation Card -->
+                        <div class="relative w-full max-w-[340px] aspect-[576/1024] mx-auto rounded-[2rem] overflow-hidden shadow-soft border border-borders-dividers/50 bg-[#F5E5D5] group/card select-none my-8 reveal">
+                            
+                            <!-- Background Frame (Arch) -->
+                            <div class="absolute inset-0 z-10 transition-transform duration-700 ease-out parallax-bg">
+                                <img src="images/layer_arch.png" alt="Arch Frame" class="w-full h-full object-cover">
+                            </div>
+                            
+                            <!-- Arch frame glow / ambient light effect -->
+                            <div class="absolute inset-0 z-15 bg-gradient-to-tr from-amber-500/0 via-amber-500/5 to-amber-500/0 mix-blend-overlay animate-ambient-glow pointer-events-none"></div>
+
+                            <!-- Soft floating particles behind the couple & text -->
+                            <div class="absolute inset-0 z-20 overflow-hidden pointer-events-none particle-container-card"></div>
+
+                            <!-- Animated Birds (Top Right) -->
+                            <div class="absolute top-[2%] right-[5%] w-[34%] aspect-[196/250] z-25 animate-float-birds pointer-events-none transition-transform duration-500">
+                                <img src="images/layer_birds.png" alt="Flying Birds" class="w-full h-full object-contain">
+                            </div>
+
+                            <!-- Empty Space content: Animated HTML Text -->
+                            <div class="absolute top-[23%] left-[12%] right-[12%] h-[45%] z-30 flex flex-col items-center justify-center text-center px-4 pointer-events-none">
+                                
+                                <!-- Ceremony title -->
+                                <p class="text-secondary-accent text-xs font-semibold tracking-[0.25em] uppercase mb-4 animate-text-reveal-1">
+                                    <span class="en-inline font-bold">Engagement Ceremony</span>
+                                    <span class="kn-inline font-bold" style="font-family:'Noto Sans Kannada',sans-serif;">ನಿಶ್ಚಿತಾರ್ಥ ಸಮಾರಂಭ</span>
+                                </p>
+                                
+                                <!-- Separator -->
+                                <div class="w-10 h-[1px] bg-secondary-accent/50 mb-5 animate-text-reveal-1 opacity-70"></div>
+                                
+                                <!-- Names -->
+                                <h3 class="text-primary-accent text-[2.1rem] font-headings leading-tight mb-1 animate-text-reveal-2 select-text">
+                                    <span class="en-text">Priya Deshmukh</span>
+                                    <span class="kn-text" style="font-family:'Noto Sans Kannada',sans-serif; font-size: 22px; font-weight: bold; font-style: normal;">ಪ್ರಿಯಾ ದೇಶಮುಖ್</span>
+                                </h3>
+                                <span class="text-secondary-accent font-headings text-xl my-0.5 animate-text-reveal-2 opacity-80">&</span>
+                                <h3 class="text-primary-accent text-[2.1rem] font-headings leading-tight mb-4 animate-text-reveal-2 select-text">
+                                    <span class="en-text">Shivukumar Kadari</span>
+                                    <span class="kn-text" style="font-family:'Noto Sans Kannada',sans-serif; font-size: 22px; font-weight: bold; font-style: normal;">ಶಿವಕುಮಾರ್ ಕದರಿ</span>
+                                </h3>
+                                
+                                <!-- Separator -->
+                                <div class="w-10 h-[1px] bg-secondary-accent/50 mb-5 animate-text-reveal-3 opacity-70"></div>
+
+                                <!-- Date & Time -->
+                                <p class="text-primary-accent text-[0.85rem] font-body lining-nums font-bold tracking-[0.15em] uppercase mb-1 animate-text-reveal-3 select-text">
+                                    <span class="en-text">8th July 2026</span>
+                                    <span class="kn-text" style="font-family:'Noto Sans Kannada',sans-serif; font-size: 14px; font-weight: bold;">೮ ಜುಲೈ ೨೦೨೬</span>
+                                </p>
+                                <p class="text-secondary-accent text-[0.8rem] font-body font-semibold tracking-[0.1em] uppercase animate-text-reveal-3 select-text">
+                                    <span class="en-text">11:30 AM</span>
+                                    <span class="kn-text" style="font-family:'Noto Sans Kannada',sans-serif; font-size: 13px; font-weight: bold;">ಬೆಳಿಗ್ಗೆ ೧೧:೩೦</span>
+                                </p>
+                            </div>
+
+                            <!-- Animated Left Florals (Swaying) -->
+                            <div class="absolute left-0 top-[15%] w-[31%] h-[75%] z-35 origin-bottom-left animate-sway-left pointer-events-none transition-transform duration-700 ease-out parallax-fg">
+                                <img src="images/layer_left_florals.png" alt="Left Florals" class="w-full h-full object-contain object-bottom">
+                            </div>
+
+                            <!-- Animated Right Florals (Swaying) -->
+                            <div class="absolute right-0 top-[44%] w-[31%] h-[46%] z-35 origin-bottom-right animate-sway-right pointer-events-none transition-transform duration-700 ease-out parallax-fg">
+                                <img src="images/layer_right_florals.png" alt="Right Florals" class="w-full h-full object-contain object-bottom">
+                            </div>
+
+                            <!-- Animated Couple (Center Bottom) -->
+                            <div class="absolute bottom-0 left-[26%] w-[52%] h-[32%] z-40 origin-bottom animate-couple-entrance pointer-events-none transition-transform duration-700 ease-out parallax-fg">
+                                <div class="w-full h-full animate-couple-breath">
+                                    <img src="images/layer_couple.png" alt="Bride and Groom" class="w-full h-full object-contain object-bottom">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== VENUE SECTION ===== -->
+        <section class="py-20 md:py-28 bg-white text-center border-b border-borders-dividers">
+            <div class="container mx-auto px-6 max-w-3xl">
+                <p class="text-sm tracking-[0.3em] text-secondary-accent uppercase mb-4 font-semibold">
+                    <span class="en-inline">Join Us</span><span class="kn-inline">ನಮ್ಮೊಂದಿಗೆ ಸೇರಿ</span>
+                </p>
+                <h2 class="text-[3.5rem] md:text-6xl font-headings mb-6 text-primary-accent">
+                    <span class="en-inline">Engagement Venue</span>
+                    <span class="kn-inline">ನಿಶ್ಚಿತಾರ್ಥ ಸ್ಥಳ</span>
+                </h2>
+                
+                <div class="flex items-center justify-center opacity-60 mb-8">
+                    <div class="w-16 h-[1px] bg-secondary-accent"></div>
+                    <span class="text-secondary-accent mx-4 text-xl">✧</span>
+                    <div class="w-16 h-[1px] bg-secondary-accent"></div>
+                </div>
+                
+                <p class="text-xl md:text-2xl text-text-secondary font-body italic leading-relaxed mb-10 max-w-2xl mx-auto">
+                    <span class="en-inline">We are thrilled to invite you to celebrate our special day at</span>
+                    <span class="kn-inline">ನಮ್ಮ ವಿಶೇಷ ದಿನವನ್ನು ಆಚರಿಸಲು ನಿಮ್ಮನ್ನು ಆಹ್ವಾನಿಸಲು ನಾವು ಸಂತೋಷಪಡುತ್ತೇವೆ</span>
+                </p>
+                
+                <div class="bg-bg-primary p-8 md:p-12 rounded-2xl shadow-soft border border-borders-dividers/50 inline-block w-full max-w-xl">
+                    <h3 class="text-3xl md:text-4xl font-body text-primary-accent font-bold mb-3">Khuba Kalyan Mantap</h3>
+                    <p class="text-base md:text-lg text-text-secondary font-body mb-8 max-w-md mx-auto leading-relaxed">
+                        Super Market Main Rd, Khuba Plot, Brhampur, Kalaburagi, Karnataka 585102
+                    </p>
+                    
+                    <!-- Interactive Map Card -->
+                    <div class="mt-8 flex justify-center">
+                        <a href="https://www.google.com/maps/place/Khuba+Kalyana+Mantapa/@17.326794,76.828878,720m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3bc8c754e2ac43c5:0x599b151335562d72!8m2!3d17.326794!4d76.828878!16s%2Fg%2F11c6cqqbwj?entry=ttu&g_ep=EgoyMDI2MDYxMC4wIKXMDSoASAFQAw%3D%3D" 
+                           target="_blank" 
+                           rel="noopener" 
+                           class="relative block w-full max-w-md aspect-[16/9] rounded-2xl overflow-hidden shadow-xl border border-borders-dividers group hover:shadow-2xl transition-all duration-500 hover:-translate-y-1">
+                            
+                            <!-- Map image background with dark mode effect -->
+                            <img src="images/map_preview.png" alt="Khuba Kalyan Mantap Map Location" class="w-full h-full object-cover brightness-[0.7] contrast-[1.1] group-hover:scale-105 transition-transform duration-700">
+                            
+                            <!-- Dark overlay gradient -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10 transition-opacity duration-500"></div>
+                            
+                            <!-- View Location / Open in Google Maps overlay -->
+                            <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white z-10">
+                                <div class="flex flex-col items-start text-left">
+                                    <span class="text-xs uppercase tracking-widest text-secondary-accent font-semibold font-body">Khuba Kalyan Mantap</span>
+                                    <span class="text-sm font-bold font-body flex items-center gap-1.5 mt-0.5">
+                                        <span class="en-inline">Open in Google Maps</span>
+                                        <span class="kn-inline">ಗೂಗಲ್ ಮ್ಯಾಪ್ಸ್‌ನಲ್ಲಿ ನೋಡಿ</span>
+                                        <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+                                        </svg>
+                                    </span>
+                                </div>
+                                
+                                <div class="bg-white/10 backdrop-blur-md p-2 rounded-full border border-white/20 shadow-md">
+                                    <svg class="w-5 h-5 text-secondary-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.446l6.002-3.001a1.125 1.125 0 00.596-.992V5.25A1.125 1.125 0 0021 4.257l-6 3-6-3-6 3a1.125 1.125 0 00-.596.992v11.517a1.125 1.125 0 00.596.992l6 3z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== BLESSINGS & INVITATION ===== -->
+        <section class="py-20 md:py-28 bg-bg-secondary border-t border-borders-dividers text-center">
+            <div class="container mx-auto px-6 max-w-2xl">
+                <!-- Blessings Card -->
+                <div class="bg-white p-8 md:p-12 border border-borders-dividers shadow-soft rounded-2xl mb-12 relative overflow-hidden">
+                    <div class="absolute -top-10 -right-10 w-24 h-24 bg-primary-accent bg-opacity-5 rounded-full"></div>
+                    <div class="absolute -bottom-8 -left-8 w-20 h-20 bg-secondary-accent bg-opacity-5 rounded-full"></div>
+                    
+                    <p class="text-sm tracking-[0.3em] text-secondary-accent uppercase mb-4 font-semibold">
+                        <span class="en-inline">Blessings</span><span class="kn-inline">ಆಶೀರ್ವಾದಗಳು</span>
+                    </p>
+                    
+                    <div class="flex items-center justify-center opacity-40 mb-6">
+                        <div class="w-12 h-[1px] bg-secondary-accent"></div>
+                        <span class="text-secondary-accent mx-3 text-sm">✦</span>
+                        <div class="w-12 h-[1px] bg-secondary-accent"></div>
+                    </div>
+
+                    <blockquote class="text-2xl md:text-3xl font-body italic text-primary-accent leading-relaxed max-w-lg mx-auto">
+                        <span class="en-text">
+                            "Your presence is the greatest gift to us.<br>
+                            With your blessings, this journey begins."
+                        </span>
+                        <span class="kn-text leading-loose" style="font-family:'Noto Sans Kannada',sans-serif; font-size: 20px; font-style: normal;">
+                            "ನಿಮ್ಮ ಸಾನ್ನಿಧ್ಯವೇ ನಮಗೆ ದೊಡ್ಡ ಉಡುಗೊರೆ<br>
+                            ನಿಮ್ಮ ಆಶೀರ್ವಾದಗಳೊಂದಿಗೆ ನಮ್ಮ ಹೊಸ ಪ್ರಯಾಣ ಆರಂಭವಾಗುತ್ತಿದೆ"
+                        </span>
+                    </blockquote>
+                </div>
+
+                <!-- Invitation Message Card -->
+                <div class="bg-white p-8 md:p-12 border border-borders-dividers shadow-soft rounded-2xl relative overflow-hidden">
+                    <div class="absolute -top-8 -left-8 w-20 h-20 bg-primary-accent bg-opacity-5 rounded-full"></div>
+                    <div class="absolute -bottom-10 -right-10 w-24 h-24 bg-secondary-accent bg-opacity-5 rounded-full"></div>
+                    
+                    <p class="text-sm tracking-[0.3em] text-secondary-accent uppercase mb-4 font-semibold">
+                        <span class="en-inline">Invitation</span><span class="kn-inline">ಆಹ್ವಾನ</span>
+                    </p>
+
+                    <div class="flex items-center justify-center opacity-40 mb-6">
+                        <div class="w-12 h-[1px] bg-secondary-accent"></div>
+                        <span class="text-secondary-accent mx-3 text-sm">✦</span>
+                        <div class="w-12 h-[1px] bg-secondary-accent"></div>
+                    </div>
+
+                    <p class="text-2xl md:text-3xl font-body text-primary-accent leading-relaxed max-w-lg mx-auto">
+                        <span class="en-text">
+                            "Together with our families, we request the honor of your presence"
+                        </span>
+                        <span class="kn-text leading-loose" style="font-family:'Noto Sans Kannada',sans-serif; font-size: 20px;">
+                            "ನಮ್ಮ ಕುಟುಂಬದವರೊಂದಿಗೆ ನಿಮ್ಮ ಸಾನ್ನಿಧ್ಯವನ್ನು ವಿನಂತಿಸುತ್ತೇವೆ"
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FUN CORNER ===== -->
+        <section class="py-20 md:py-28 bg-bg-secondary border-t border-borders-dividers text-center">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <p class="text-sm tracking-[0.3em] text-secondary-accent uppercase mb-3 font-semibold">
+                    <span class="en-inline">Fun Corner</span><span class="kn-inline">ಮೋಜಿನ ಸಮಯ</span>
+                </p>
+                <h2 class="text-[3rem] md:text-5xl font-headings mb-8 text-primary-accent leading-tight">
+                    <span class="en-inline">Make a Guess</span>
+                    <span class="kn-inline">ಒಂದು ಊಹೆ ಮಾಡಿ</span>
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-center mt-12">
+                    <!-- Card 1: Emotional First -->
+                    <div class="bg-white p-8 md:p-10 border border-borders-dividers shadow-soft rounded-2xl flex flex-col justify-between hover:shadow-md transition-shadow duration-300">
+                        <div>
+                            <h3 class="text-2xl font-body italic text-primary-accent mb-2 font-semibold">
+                                <span class="en-inline">Who will get emotional first?</span>
+                                <span class="kn-inline">ಯಾರು ಮೊದಲು ಭಾವುಕರಾಗುತ್ತಾರೆ?</span>
+                            </h3>
+                            <p class="text-text-secondary text-base font-body mb-6">
+                                <span class="en-inline">Tap to vote & reveal the secret!</span>
+                                <span class="kn-inline">ನಿಮ್ಮ ಊಹೆಯನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ!</span>
+                            </p>
+                        </div>
+                        <div class="flex justify-center gap-6 my-4">
+                            <button onclick="voteEmotional('Priya', this)" class="group flex flex-col items-center gap-2 focus:outline-none">
+                                <span class="vote-opt-circle w-16 h-16 rounded-full border border-borders-dividers flex items-center justify-center transition-all bg-gray-50/50 group-hover:border-primary-accent text-primary-accent font-headings text-3xl pt-1">P</span>
+                                <span class="text-xs uppercase tracking-widest text-text-secondary font-semibold">Priya</span>
+                            </button>
+                            <button onclick="voteEmotional('Shivukumar', this)" class="group flex flex-col items-center gap-2 focus:outline-none">
+                                <span class="vote-opt-circle w-16 h-16 rounded-full border border-borders-dividers flex items-center justify-center transition-all bg-gray-50/50 group-hover:border-primary-accent text-primary-accent font-headings text-3xl pt-1">S</span>
+                                <span class="text-xs uppercase tracking-widest text-text-secondary font-semibold">Shivukumar</span>
+                            </button>
+                            <button onclick="voteEmotional('Both', this)" class="group flex flex-col items-center gap-2 focus:outline-none">
+                                <span class="vote-opt-circle w-16 h-16 rounded-full border border-borders-dividers flex items-center justify-center transition-all bg-gray-50/50 group-hover:border-primary-accent text-primary-accent font-headings text-3xl pt-1">B</span>
+                                <span class="text-xs uppercase tracking-widest text-text-secondary font-semibold">
+                                    <span class="en-inline">Both</span><span class="kn-inline">ಇಬ್ಬರೂ</span>
+                                </span>
+                            </button>
+                        </div>
+                        <p id="emotional-reveal" class="text-base text-secondary-accent mt-4 min-h-[2.5rem] flex items-center justify-center italic font-body transition-all duration-300 opacity-0 leading-relaxed">
+                            <!-- JS will update this -->
+                        </p>
+                    </div>
+
+                    <!-- Card 2: Coming For -->
+                    <div class="bg-white p-8 md:p-10 border border-borders-dividers shadow-soft rounded-2xl flex flex-col justify-between hover:shadow-md transition-shadow duration-300">
+                        <div>
+                            <h3 class="text-2xl font-body italic text-primary-accent mb-2 font-semibold">
+                                <span class="en-inline">What are you looking forward to?</span>
+                                <span class="kn-inline">ನೀವು ಯಾವುದಕ್ಕಾಗಿ ಕಾಯುತ್ತಿದ್ದೀರಿ?</span>
+                            </h3>
+                            <p class="text-text-secondary text-base font-body mb-6">
+                                <span class="en-inline">Select your favorite part of the ceremony</span>
+                                <span class="kn-inline">ನಿಮ್ಮ ನೆಚ್ಚಿನದನ್ನು ಆರಿಸಿ</span>
+                            </p>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3 my-2">
+                            <button onclick="voteMood('Food', this)" class="vote-mood-btn border border-borders-dividers p-3.5 text-center rounded-xl hover:bg-bg-secondary transition-colors text-base font-body">
+                                🍛 <span class="en-inline">The Food</span><span class="kn-inline">ಊಟ</span>
+                            </button>
+                            <button onclick="voteMood('Dance', this)" class="vote-mood-btn border border-borders-dividers p-3.5 text-center rounded-xl hover:bg-bg-secondary transition-colors text-base font-body">
+                                💃 <span class="en-inline">The Dance</span><span class="kn-inline">ನೃತ್ಯ</span>
+                            </button>
+                            <button onclick="voteMood('Love', this)" class="vote-mood-btn border border-borders-dividers p-3.5 text-center rounded-xl hover:bg-bg-secondary transition-colors text-base font-body">
+                                ❤️ <span class="en-inline">The Love</span><span class="kn-inline">ಪ್ರೀತಿ</span>
+                            </button>
+                            <button onclick="voteMood('All', this)" class="vote-mood-btn border border-borders-dividers p-3.5 text-center rounded-xl hover:bg-bg-secondary transition-colors text-base font-body">
+                                ✨ <span class="en-inline">All of It</span><span class="kn-inline">ಎಲ್ಲವೂ</span>
+                            </button>
+                        </div>
+                        <p id="mood-reveal" class="text-base text-secondary-accent mt-4 min-h-[2.5rem] flex items-center justify-center italic font-body transition-all duration-300 opacity-0 leading-relaxed">
+                            <!-- JS will update this -->
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CLOSING ===== -->
+        <section class="relative py-20 md:py-28 bg-primary-accent text-white">
+            <div class="container mx-auto px-6 text-center pb-10">
+                <h2 class="text-5xl md:text-6xl font-headings mb-6 text-secondary-accent">
+                    <span class="en-inline">With Love & Blessings</span>
+                    <span class="kn-inline">ಪ್ರೀತಿ ಮತ್ತು ಆಶೀರ್ವಾದದೊಂದಿಗೆ</span>
+                </h2>
+                <p class="text-xl md:text-2xl font-body italic max-w-2xl mx-auto leading-relaxed text-white/90">
+                    <span class="en-text">We look forward to celebrating with you ❤️</span>
+                    <span class="kn-text leading-loose" style="font-family:'Noto Sans Kannada',sans-serif; font-size: 20px; font-style: normal;">ನಿಮ್ಮೊಂದಿಗೆ ಈ ಸಂತಸದ ಕ್ಷಣವನ್ನು ಹಂಚಿಕೊಳ್ಳಲು ನಾವು ಕಾಯುತ್ತಿದ್ದೇವೆ</span>
+                </p>
+                <div class="flex items-center justify-center py-10 opacity-80">
+                    <div class="w-16 h-[1px] bg-secondary-accent"></div>
+                    <span class="text-secondary-accent mx-4 text-2xl">♥</span>
+                    <div class="w-16 h-[1px] bg-secondary-accent"></div>
+                </div>
+                <p class="font-body text-sm md:text-base font-semibold uppercase tracking-[0.3em] text-secondary-accent">
+                   Priya & Shivukumar · 8th July 2026
+                </p>
+            </div>
+        </section>
+    </div>
+
+
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // ===== FLOATING PETALS ON GATE =====
+        (function() {
+            const container = document.getElementById('gate-petals');
+            if (!container) return;
+            for (let i = 0; i < 20; i++) {
+                const p = document.createElement('div');
+                p.className = 'petal-gold';
+                const size = 6 + Math.random() * 12;
+                p.style.cssText = `
+                    left: ${Math.random() * 100}%;
+                    width: ${size}px; height: ${size}px;
+                    background: radial-gradient(ellipse, #B59A6D, #8B7328);
+                    animation: petalFloat ${10 + Math.random() * 10}s ease-in-out ${Math.random() * 8}s infinite;
+                `;
+                container.appendChild(p);
+            }
+        })();
+
+        // ===== CARD OPENING =====
+        let cardOpened = false;
+        function openCard() {
+            if (cardOpened) return;
+            cardOpened = true;
+
+            const wrapper = document.getElementById('cardWrapper');
+            const gate = document.getElementById('card-gate');
+            const mainContent = document.getElementById('main-content');
+
+            wrapper.classList.add('opened');
+
+            setTimeout(() => {
+                gate.classList.add('dismissed');
+            }, 600);
+
+            setTimeout(() => {
+                gate.style.display = 'none';
+                mainContent.classList.remove('hidden');
+                mainContent.classList.add('fade-in');
+                document.body.style.overflow = 'auto';
+
+                // Show language toggle and audio button
+                document.getElementById('langToggle').classList.add('visible');
+                document.getElementById('audio-toggle').style.display = 'flex';
+
+                startInteractionDetection();
+            }, 1600);
+        }
+
+        document.body.style.overflow = 'hidden';
+
+        // ===== LANGUAGE TOGGLE =====
+        let currentLang = 'en';
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'kn' : 'en';
+            if (currentLang === 'kn') {
+                document.body.classList.add('kannada');
+            } else {
+                document.body.classList.remove('kannada');
+            }
+        }
+
+        // ===== AUDIO TOGGLE =====
+        let isPlaying = false;
+        document.getElementById('audio-toggle').addEventListener('click', (e) => {
+            e.stopPropagation();
+            const volumeOn = document.getElementById('volume-on');
+            const volumeOff = document.getElementById('volume-off');
+            isPlaying = !isPlaying;
+            if (isPlaying) {
+                volumeOn.classList.remove('hidden');
+                volumeOff.classList.add('hidden');
+            } else {
+                volumeOn.classList.add('hidden');
+                volumeOff.classList.remove('hidden');
+            }
+        });
+
+        // ===== COUNTDOWN =====
+        const weddingDate = new Date('July 8, 2026 11:30:00 GMT+0530');
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            if (distance < 0) {
+                document.getElementById('countdown').innerHTML = "<span class='text-primary-accent text-4xl font-headings mt-6 block text-center col-span-2'>The Day Has Arrived!</span>";
+                return;
+            }
+
+            const d = Math.floor(distance / 86400000);
+            const h = Math.floor((distance % 86400000) / 3600000);
+            const m = Math.floor((distance % 3600000) / 60000);
+            const s = Math.floor((distance % 60000) / 1000);
+
+            document.getElementById('days').innerText = d < 10 ? '0' + d : d;
+            document.getElementById('hours').innerText = h < 10 ? '0' + h : h;
+            document.getElementById('minutes').innerText = m < 10 ? '0' + m : m;
+            document.getElementById('seconds').innerText = s < 10 ? '0' + s : s;
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // ===== FUN CORNER INTERACTION =====
+        function voteEmotional(choice, btn) {
+            const card = btn.closest('.bg-white');
+            card.querySelectorAll('.vote-opt-circle').forEach(el => {
+                el.classList.remove('bg-primary-accent', 'text-white', 'border-primary-accent');
+            });
+            btn.querySelector('.vote-opt-circle').classList.add('bg-primary-accent', 'text-white', 'border-primary-accent');
+            
+            const revealEl = document.getElementById('emotional-reveal');
+            revealEl.classList.remove('opacity-0');
+            revealEl.classList.add('opacity-100');
+            
+            if (choice === 'Priya') {
+                revealEl.innerHTML = `<span class="en-inline">Priya: "Hey! I'm strong... but okay, maybe! 🤫"</span><span class="kn-inline">ಪ್ರಿಯಾ: "ನಾನು ಧೈರ್ಯಶಾಲಿ... ಆದರೆ ಇರಬಹುದು! 🤫"</span>`;
+            } else if (choice === 'Shivukumar') {
+                revealEl.innerHTML = `<span class="en-inline">Shivukumar: "No way, I will keep a straight face! 😎"</span><span class="kn-inline">ಶಿವಕುಮಾರ್: "ಸಾಧ್ಯವೇ ಇಲ್ಲ, ನಾನು ನಗುಮುಖದಿಂದ ಇರುವೇ! 😎"</span>`;
+            } else {
+                revealEl.innerHTML = `<span class="en-inline">"Let's keep the tissues ready for both! 🧻❤️"</span><span class="kn-inline">"ಇಬ್ಬರಿಗೂ ಟಿಶ್ಯೂ ರೆಡಿ ಇಟ್ಟುಕೊಳ್ಳೋಣ! 🧻❤️"</span>`;
+            }
+        }
+
+        function voteMood(choice, btn) {
+            const card = btn.closest('.bg-white');
+            card.querySelectorAll('.vote-mood-btn').forEach(el => {
+                el.classList.remove('bg-primary-accent', 'text-white', 'border-primary-accent');
+            });
+            btn.classList.add('bg-primary-accent', 'text-white', 'border-primary-accent');
+            
+            const revealEl = document.getElementById('mood-reveal');
+            revealEl.classList.remove('opacity-0');
+            revealEl.classList.add('opacity-100');
+            
+            if (choice === 'Food') {
+                revealEl.innerHTML = `<span class="en-inline">"The menu is delicious, you won't regret it! 🍛"</span><span class="kn-inline">"ಮೆನು ರುಚಿಕರವಾಗಿದೆ, ನೀವು ಖಂಡಿತ ಇಷ್ಟಪಡುತ್ತೀರಿ! 🍛"</span>`;
+            } else if (choice === 'Dance') {
+                revealEl.innerHTML = `<span class="en-inline">"Get your dancing shoes ready! 💃✨"</span><span class="kn-inline">"ನಿಮ್ಮ ಡ್ಯಾನ್ಸಿಂಗ್ ಶೂಸ್ ಸಿದ್ಧಪಡಿಸಿಕೊಳ್ಳಿ! 💃✨"</span>`;
+            } else if (choice === 'Love') {
+                revealEl.innerHTML = `<span class="en-inline">"Your presence makes our day complete! ❤️"</span><span class="kn-inline">"ನಿಮ್ಮ ಸಾನ್ನಿಧ್ಯ ನಮ್ಮ ದಿನವನ್ನು ಪೂರ್ಣಗೊಳಿಸುತ್ತದೆ! ❤️"</span>`;
+            } else {
+                revealEl.innerHTML = `<span class="en-inline">"We are so excited to celebrate with you! 🥰"</span><span class="kn-inline">"ನಿಮ್ಮೊಂದಿಗೆ ಆಚರಿಸಲು ನಾವು ಉತ್ಸುಕರಾಗಿದ್ದೇವೆ! 🥰"</span>`;
+            }
+        }
+
+
+
+        // ===== EXPANDABLE TIMELINE =====
+        document.addEventListener('DOMContentLoaded', () => {
+            const items = document.querySelectorAll('.timeline-item');
+            items.forEach(item => {
+                item.addEventListener('click', function() {
+                    const isExpanded = this.classList.contains('is-expanded');
+                    items.forEach(i => i.classList.remove('is-expanded'));
+                    if (!isExpanded) this.classList.add('is-expanded');
+                });
+            });
+            const obs = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        items.forEach(i => { if (i !== entry.target) i.classList.remove('is-expanded'); });
+                        entry.target.classList.add('is-expanded');
+                    } else {
+                        entry.target.classList.remove('is-expanded');
+                    }
+                });
+            }, { rootMargin: '-25% 0px -25% 0px', threshold: 0.3 });
+            items.forEach(i => obs.observe(i));
+            // Generate floating particles inside invitation card
+            const containerCard = document.querySelector('.particle-container-card');
+            if (containerCard) {
+                for (let i = 0; i < 15; i++) {
+                    const p = document.createElement('div');
+                    p.className = 'card-particle';
+                    const size = 2 + Math.random() * 3;
+                    p.style.cssText = `
+                        position: absolute;
+                        width: ${size}px; height: ${size}px;
+                        background: rgba(181, 154, 109, ${0.25 + Math.random() * 0.4});
+                        border-radius: 50%;
+                        left: ${Math.random() * 80 + 10}%;
+                        top: ${Math.random() * 80 + 10}%;
+                        animation: cardParticleFloat ${8 + Math.random() * 10}s ease-in-out ${Math.random() * 5}s infinite alternate;
+                    `;
+                    containerCard.appendChild(p);
+                }
+            }
+
+            // Parallax scroll effect
+            window.addEventListener('scroll', () => {
+                const card = document.querySelector('.group\\/card');
+                if (!card) return;
+                const rect = card.getBoundingClientRect();
+                const scrolled = window.innerHeight - rect.top;
+                
+                if (scrolled > 0 && rect.bottom > 0) {
+                    const speedBg = 0.04;
+                    const speedFg = -0.06;
+                    const offsetBg = scrolled * speedBg;
+                    const offsetFg = scrolled * speedFg;
+                    
+                    card.querySelectorAll('.parallax-bg').forEach(el => {
+                        el.style.transform = `translateY(${offsetBg}px)`;
+                    });
+                    card.querySelectorAll('.parallax-fg').forEach(el => {
+                        el.style.transform = `translateY(${offsetFg}px)`;
+                    });
+                }
+            }, { passive: true });
+        });
+
+        // ===== AUTO SCROLL (mobile) =====
+        let scrollAnimationHasRun = false, userInteracted = false;
+        const startInteractionDetection = () => {
+            const mark = () => { userInteracted = true; };
+            ['wheel','touchstart','keydown','mousedown'].forEach(e => window.addEventListener(e, mark, { passive: true }));
+        };
+        function easeInOutCubic(t) { return t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2; }
+        function smoothScrollTo(target, duration) {
+            const start = window.pageYOffset, dist = target - start, startTime = performance.now();
+            function animate(now) {
+                if (userInteracted) return;
+                const p = Math.min((now - startTime) / duration, 1);
+                window.scrollTo(0, start + dist * easeInOutCubic(p));
+                if (p < 1) requestAnimationFrame(animate);
+            }
+            requestAnimationFrame(animate);
+        }
+    </script>
+</body>
+</html>
