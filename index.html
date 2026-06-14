@@ -460,6 +460,11 @@
 
 <body class="bg-bg-primary text-text-primary font-body overflow-x-hidden">
 
+    <!-- ===== BACKGROUND MUSIC ===== -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
     <!-- ===== LANGUAGE TOGGLE ===== -->
     <button class="lang-toggle" id="langToggle" onclick="toggleLanguage()">
         <span class="en-inline">ಕನ್ನಡ</span>
@@ -467,8 +472,8 @@
     </button>
 
     <!-- ===== AUDIO TOGGLE ===== -->
-    <button id="audio-toggle" class="fixed bottom-6 right-6 bg-primary-accent hover:bg-opacity-90 hover:scale-110 text-white p-4 rounded-full transition-all duration-300 z-[100] shadow-xl border border-white/20 backdrop-blur-sm opacity-90 hover:opacity-100" style="display:none;">
-        <svg id="volume-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <button id="audio-toggle" class="fixed bottom-6 right-6 bg-[#F3EFE6] hover:bg-[#EAE4D6] hover:scale-110 text-[#3A4F32] p-3.5 rounded-full transition-all duration-300 z-[100] shadow-soft border border-[#DCD3C6] opacity-90 hover:opacity-100 flex items-center justify-center cursor-pointer" style="display:none;" aria-label="Toggle Background Music">
+        <svg id="volume-icon" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path id="volume-on" d="M11 5L6 9H2v6h4l5 4V5zM19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"></path>
             <path id="volume-off" d="M11 5L6 9H2v6h4l5 4V5zM23 9l-6 6M17 9l6 6" class="hidden"></path>
         </svg>
@@ -554,6 +559,11 @@
 
             <!-- Tap to Reveal text -->
             <div class="tap-text" id="tapText">Tap To Reveal</div>
+        </div>
+
+        <!-- Music Experience Overlay Text -->
+        <div id="music-overlay-text" class="absolute bottom-24 left-1/2 -translate-x-1/2 text-[#FAF5EB]/90 font-body text-[15px] tracking-widest uppercase bg-black/40 backdrop-blur-md px-6 py-2.5 rounded-full border border-[#B59A6D]/20 shadow-lg text-center select-none pointer-events-none transition-opacity duration-700 z-30 animate-pulse">
+            Tap to experience with music 🎶
         </div>
 
         <!-- Bottom "Engagement Day" watermark -->
@@ -658,8 +668,8 @@
                     </div>
 
                     <div>
-                        <p class="en-text">Ishwar Kadari & Late Shaila</p>
-                        <p class="kn-text leading-loose" style="font-family:'Noto Sans Kannada',sans-serif; font-size: 19px; font-style: normal; font-weight: 500;">ಈಶ್ವರ್ ಕದರಿ ಮತ್ತು ದಿವಂಗತ ಶೈಲಾ</p>
+                        <p class="en-text">Ishwar Kadari & Late Shaila Kadari</p>
+                        <p class="kn-text leading-loose" style="font-family:'Noto Sans Kannada',sans-serif; font-size: 19px; font-style: normal; font-weight: 500;">ಈಶ್ವರ್ ಕದರಿ ಮತ್ತು ದಿವಂಗತ ಶೈಲಾ ಕದರಿ</p>
                     </div>
                 </div>
             </div>
@@ -1020,6 +1030,29 @@
 
             wrapper.classList.add('opened');
 
+            // Play background music
+            const bgMusic = document.getElementById('bg-music');
+            if (bgMusic) {
+                bgMusic.volume = 0.3;
+                bgMusic.play().then(() => {
+                    isPlaying = true;
+                    const volumeOn = document.getElementById('volume-on');
+                    const volumeOff = document.getElementById('volume-off');
+                    if (volumeOn && volumeOff) {
+                        volumeOn.classList.remove('hidden');
+                        volumeOff.classList.add('hidden');
+                    }
+                }).catch(err => {
+                    console.log("Audio play failed or was prevented by browser:", err);
+                });
+            }
+
+            // Fade out music overlay text
+            const overlayText = document.getElementById('music-overlay-text');
+            if (overlayText) {
+                overlayText.style.opacity = '0';
+            }
+
             setTimeout(() => {
                 gate.classList.add('dismissed');
             }, 600);
@@ -1053,19 +1086,68 @@
 
         // ===== AUDIO TOGGLE =====
         let isPlaying = false;
-        document.getElementById('audio-toggle').addEventListener('click', (e) => {
-            e.stopPropagation();
+        const bgMusic = document.getElementById('bg-music');
+
+        if (bgMusic) {
+            bgMusic.volume = 0.3;
+        }
+
+        function toggleAudio() {
+            if (!bgMusic) return;
             const volumeOn = document.getElementById('volume-on');
             const volumeOff = document.getElementById('volume-off');
-            isPlaying = !isPlaying;
-            if (isPlaying) {
-                volumeOn.classList.remove('hidden');
-                volumeOff.classList.add('hidden');
+            
+            if (bgMusic.paused) {
+                bgMusic.play().then(() => {
+                    isPlaying = true;
+                    volumeOn.classList.remove('hidden');
+                    volumeOff.classList.add('hidden');
+                }).catch(err => {
+                    console.error("Play failed:", err);
+                });
             } else {
+                bgMusic.pause();
+                isPlaying = false;
                 volumeOn.classList.add('hidden');
                 volumeOff.classList.remove('hidden');
             }
+        }
+
+        document.getElementById('audio-toggle').addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleAudio();
         });
+
+        // Autoplay fallback on first interaction
+        function initAudioAutoplay() {
+            const startMusic = () => {
+                if (bgMusic && bgMusic.paused) {
+                    bgMusic.play().then(() => {
+                        isPlaying = true;
+                        const volumeOn = document.getElementById('volume-on');
+                        const volumeOff = document.getElementById('volume-off');
+                        if (volumeOn && volumeOff) {
+                            volumeOn.classList.remove('hidden');
+                            volumeOff.classList.add('hidden');
+                        }
+                        const overlayText = document.getElementById('music-overlay-text');
+                        if (overlayText) {
+                            overlayText.style.opacity = '0';
+                        }
+                    }).catch(err => {
+                        console.log("Autoplay on interaction prevented:", err);
+                    });
+                }
+                // Cleanup listeners
+                ['click', 'touchstart', 'keydown'].forEach(e => {
+                    document.removeEventListener(e, startMusic);
+                });
+            };
+            ['click', 'touchstart', 'keydown'].forEach(e => {
+                document.addEventListener(e, startMusic, { once: true });
+            });
+        }
+        initAudioAutoplay();
 
         // ===== COUNTDOWN =====
         const weddingDate = new Date('July 8, 2026 13:30:00 GMT+0530');
