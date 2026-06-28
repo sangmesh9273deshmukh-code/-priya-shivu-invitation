@@ -743,8 +743,8 @@
                                     <span class="kn-text" style="font-family:'Noto Sans Kannada',sans-serif; font-size: 14px; font-weight: bold;">೮ ಜುಲೈ ೨೦೨೬</span>
                                 </p>
                                 <p class="text-secondary-accent text-[0.8rem] font-body font-semibold tracking-[0.1em] uppercase animate-text-reveal-3 select-text">
-                                    <span class="en-text">1:30 PM</span>
-                                    <span class="kn-text" style="font-family:'Noto Sans Kannada',sans-serif; font-size: 13px; font-weight: bold;">ಮಧ್ಯಾಹ್ನ ೧:೩೦</span>
+                                    <span class="en-text">12:30 PM</span>
+                                    <span class="kn-text" style="font-family:'Noto Sans Kannada',sans-serif; font-size: 13px; font-weight: bold;">ಮಧ್ಯಾಹ್ನ ೧೨:೩೦</span>
                                 </p>
                             </div>
 
@@ -894,84 +894,7 @@
             </div>
         </section>
 
-        <!-- ===== FUN CORNER ===== -->
-        <section class="py-20 md:py-28 bg-bg-secondary border-t border-borders-dividers text-center">
-            <div class="container mx-auto px-6 max-w-4xl">
-                <p class="text-sm tracking-[0.3em] text-secondary-accent uppercase mb-3 font-semibold">
-                    <span class="en-inline">Fun Corner</span><span class="kn-inline">ಮೋಜಿನ ಸಮಯ</span>
-                </p>
-                <h2 class="text-[3rem] md:text-5xl font-headings mb-8 text-primary-accent leading-tight">
-                    <span class="en-inline">Make a Guess</span>
-                    <span class="kn-inline">ಒಂದು ಊಹೆ ಮಾಡಿ</span>
-                </h2>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-center mt-12">
-                    <!-- Card 1: Emotional First -->
-                    <div class="bg-white p-8 md:p-10 border border-borders-dividers shadow-soft rounded-2xl flex flex-col justify-between hover:shadow-md transition-shadow duration-300">
-                        <div>
-                            <h3 class="text-2xl font-body italic text-primary-accent mb-2 font-semibold">
-                                <span class="en-inline">Who will get emotional first?</span>
-                                <span class="kn-inline">ಯಾರು ಮೊದಲು ಭಾವುಕರಾಗುತ್ತಾರೆ?</span>
-                            </h3>
-                            <p class="text-text-secondary text-base font-body mb-6">
-                                <span class="en-inline">Tap to vote & reveal the secret!</span>
-                                <span class="kn-inline">ನಿಮ್ಮ ಊಹೆಯನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ!</span>
-                            </p>
-                        </div>
-                        <div class="flex justify-center gap-6 my-4">
-                            <button onclick="voteEmotional('Priya', this)" class="group flex flex-col items-center gap-2 focus:outline-none">
-                                <span class="vote-opt-circle w-16 h-16 rounded-full border border-borders-dividers flex items-center justify-center transition-all bg-gray-50/50 group-hover:border-primary-accent text-primary-accent font-headings text-3xl pt-1">P</span>
-                                <span class="text-xs uppercase tracking-widest text-text-secondary font-semibold">Priya</span>
-                            </button>
-                            <button onclick="voteEmotional('Shivakumar', this)" class="group flex flex-col items-center gap-2 focus:outline-none">
-                                <span class="vote-opt-circle w-16 h-16 rounded-full border border-borders-dividers flex items-center justify-center transition-all bg-gray-50/50 group-hover:border-primary-accent text-primary-accent font-headings text-3xl pt-1">S</span>
-                                <span class="text-xs uppercase tracking-widest text-text-secondary font-semibold">Shivakumar</span>
-                            </button>
-                            <button onclick="voteEmotional('Both', this)" class="group flex flex-col items-center gap-2 focus:outline-none">
-                                <span class="vote-opt-circle w-16 h-16 rounded-full border border-borders-dividers flex items-center justify-center transition-all bg-gray-50/50 group-hover:border-primary-accent text-primary-accent font-headings text-3xl pt-1">B</span>
-                                <span class="text-xs uppercase tracking-widest text-text-secondary font-semibold">
-                                    <span class="en-inline">Both</span><span class="kn-inline">ಇಬ್ಬರೂ</span>
-                                </span>
-                            </button>
-                        </div>
-                        <p id="emotional-reveal" class="text-base text-secondary-accent mt-4 min-h-[2.5rem] flex items-center justify-center italic font-body transition-all duration-300 opacity-0 leading-relaxed">
-                            <!-- JS will update this -->
-                        </p>
-                    </div>
 
-                    <!-- Card 2: Coming For -->
-                    <div class="bg-white p-8 md:p-10 border border-borders-dividers shadow-soft rounded-2xl flex flex-col justify-between hover:shadow-md transition-shadow duration-300">
-                        <div>
-                            <h3 class="text-2xl font-body italic text-primary-accent mb-2 font-semibold">
-                                <span class="en-inline">What are you looking forward to?</span>
-                                <span class="kn-inline">ನೀವು ಯಾವುದಕ್ಕಾಗಿ ಕಾಯುತ್ತಿದ್ದೀರಿ?</span>
-                            </h3>
-                            <p class="text-text-secondary text-base font-body mb-6">
-                                <span class="en-inline">Select your favorite part of the ceremony</span>
-                                <span class="kn-inline">ನಿಮ್ಮ ನೆಚ್ಚಿನದನ್ನು ಆರಿಸಿ</span>
-                            </p>
-                        </div>
-                        <div class="grid grid-cols-2 gap-3 my-2">
-                            <button onclick="voteMood('Food', this)" class="vote-mood-btn border border-borders-dividers p-3.5 text-center rounded-xl hover:bg-bg-secondary transition-colors text-base font-body">
-                                🍛 <span class="en-inline">The Food</span><span class="kn-inline">ಊಟ</span>
-                            </button>
-                            <button onclick="voteMood('Dance', this)" class="vote-mood-btn border border-borders-dividers p-3.5 text-center rounded-xl hover:bg-bg-secondary transition-colors text-base font-body">
-                                💃 <span class="en-inline">The Dance</span><span class="kn-inline">ನೃತ್ಯ</span>
-                            </button>
-                            <button onclick="voteMood('Love', this)" class="vote-mood-btn border border-borders-dividers p-3.5 text-center rounded-xl hover:bg-bg-secondary transition-colors text-base font-body">
-                                ❤️ <span class="en-inline">The Love</span><span class="kn-inline">ಪ್ರೀತಿ</span>
-                            </button>
-                            <button onclick="voteMood('All', this)" class="vote-mood-btn border border-borders-dividers p-3.5 text-center rounded-xl hover:bg-bg-secondary transition-colors text-base font-body">
-                                ✨ <span class="en-inline">All of It</span><span class="kn-inline">ಎಲ್ಲವೂ</span>
-                            </button>
-                        </div>
-                        <p id="mood-reveal" class="text-base text-secondary-accent mt-4 min-h-[2.5rem] flex items-center justify-center italic font-body transition-all duration-300 opacity-0 leading-relaxed">
-                            <!-- JS will update this -->
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- ===== CLOSING ===== -->
         <section class="relative py-20 md:py-28 bg-primary-accent text-white">
@@ -1150,7 +1073,7 @@
         initAudioAutoplay();
 
         // ===== COUNTDOWN =====
-        const weddingDate = new Date('July 8, 2026 13:30:00 GMT+0530');
+        const weddingDate = new Date('July 8, 2026 12:30:00 GMT+0530');
         function updateCountdown() {
             const now = new Date().getTime();
             const distance = weddingDate - now;
@@ -1173,48 +1096,6 @@
         setInterval(updateCountdown, 1000);
         updateCountdown();
 
-        // ===== FUN CORNER INTERACTION =====
-        function voteEmotional(choice, btn) {
-            const card = btn.closest('.bg-white');
-            card.querySelectorAll('.vote-opt-circle').forEach(el => {
-                el.classList.remove('bg-primary-accent', 'text-white', 'border-primary-accent');
-            });
-            btn.querySelector('.vote-opt-circle').classList.add('bg-primary-accent', 'text-white', 'border-primary-accent');
-            
-            const revealEl = document.getElementById('emotional-reveal');
-            revealEl.classList.remove('opacity-0');
-            revealEl.classList.add('opacity-100');
-            
-            if (choice === 'Priya') {
-                revealEl.innerHTML = `<span class="en-inline">Priya: "Hey! I'm strong... but okay, maybe! 🤫"</span><span class="kn-inline">ಪ್ರಿಯಾ: "ನಾನು ಧೈರ್ಯಶಾಲಿ... ಆದರೆ ಇರಬಹುದು! 🤫"</span>`;
-            } else if (choice === 'Shivakumar') {
-                revealEl.innerHTML = `<span class="en-inline">Shivakumar: "No way, I will keep a straight face! 😎"</span><span class="kn-inline">ಶಿವಕುಮಾರ್: "ಸಾಧ್ಯವೇ ಇಲ್ಲ, ನಾನು ನಗುಮುಖದಿಂದ ಇರುವೇ! 😎"</span>`;
-            } else {
-                revealEl.innerHTML = `<span class="en-inline">"Let's keep the tissues ready for both! 🧻❤️"</span><span class="kn-inline">"ಇಬ್ಬರಿಗೂ ಟಿಶ್ಯೂ ರೆಡಿ ಇಟ್ಟುಕೊಳ್ಳೋಣ! 🧻❤️"</span>`;
-            }
-        }
-
-        function voteMood(choice, btn) {
-            const card = btn.closest('.bg-white');
-            card.querySelectorAll('.vote-mood-btn').forEach(el => {
-                el.classList.remove('bg-primary-accent', 'text-white', 'border-primary-accent');
-            });
-            btn.classList.add('bg-primary-accent', 'text-white', 'border-primary-accent');
-            
-            const revealEl = document.getElementById('mood-reveal');
-            revealEl.classList.remove('opacity-0');
-            revealEl.classList.add('opacity-100');
-            
-            if (choice === 'Food') {
-                revealEl.innerHTML = `<span class="en-inline">"The menu is delicious, you won't regret it! 🍛"</span><span class="kn-inline">"ಮೆನು ರುಚಿಕರವಾಗಿದೆ, ನೀವು ಖಂಡಿತ ಇಷ್ಟಪಡುತ್ತೀರಿ! 🍛"</span>`;
-            } else if (choice === 'Dance') {
-                revealEl.innerHTML = `<span class="en-inline">"Get your dancing shoes ready! 💃✨"</span><span class="kn-inline">"ನಿಮ್ಮ ಡ್ಯಾನ್ಸಿಂಗ್ ಶೂಸ್ ಸಿದ್ಧಪಡಿಸಿಕೊಳ್ಳಿ! 💃✨"</span>`;
-            } else if (choice === 'Love') {
-                revealEl.innerHTML = `<span class="en-inline">"Your presence makes our day complete! ❤️"</span><span class="kn-inline">"ನಿಮ್ಮ ಸಾನ್ನಿಧ್ಯ ನಮ್ಮ ದಿನವನ್ನು ಪೂರ್ಣಗೊಳಿಸುತ್ತದೆ! ❤️"</span>`;
-            } else {
-                revealEl.innerHTML = `<span class="en-inline">"We are so excited to celebrate with you! 🥰"</span><span class="kn-inline">"ನಿಮ್ಮೊಂದಿಗೆ ಆಚರಿಸಲು ನಾವು ಉತ್ಸುಕರಾಗಿದ್ದೇವೆ! 🥰"</span>`;
-            }
-        }
 
 
 
