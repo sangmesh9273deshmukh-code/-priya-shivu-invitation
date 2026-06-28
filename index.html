@@ -348,7 +348,7 @@
             position: fixed;
             top: 20px;
             right: 20px;
-            z-index: 90;
+            z-index: 250; /* show above envelope card-gate */
             background: rgba(58,79,50,0.9);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(181,154,109,0.3);
@@ -362,13 +362,11 @@
             text-transform: uppercase;
             cursor: pointer;
             transition: all 0.3s ease;
-            display: none; /* hidden until gate opens */
         }
         .lang-toggle:hover {
             background: rgba(58,79,50,1);
             transform: scale(1.05);
         }
-        .lang-toggle.visible { display: block; }
 
         /* Kannada text hidden by default */
         .kn-text { display: none; }
@@ -492,12 +490,30 @@
 
             <!-- Inner card content (revealed when flaps open) -->
             <div class="card-inner">
-                <p class="blessing-text">With the divine blessings of<br>Lord Ganesha, we invite you<br>to celebrate the union of</p>
-                <p class="names-reveal">Priya</p>
-                <span style="font-family:'Great Vibes',cursive; font-size:28px; color:#B59A6D;">&</span>
-                <p class="names-reveal" style="margin-top: -4px;">Shivakumar</p>
-                <p class="date-reveal" style="margin-top: 16px;">8th July 2026</p>
-                <p class="wedding-day-text">Engagement Day</p>
+                <p class="blessing-text">
+                    <span class="en-text">With the divine blessings of<br>Lord Ganesha, we invite you<br>to celebrate the union of</span>
+                    <span class="kn-text leading-loose" style="font-family:'Noto Sans Kannada',sans-serif; font-size: 16px; font-style: normal; font-weight: 500; color: #3A4F32;">ಶ್ರೀ ಗಣೇಶನ ದಿವ್ಯ ಕೃಪೆಯಿಂದ, ಈ ಶುಭ ನಿಶ್ಚಿತಾರ್ಥ ಸಮಾರಂಭಕ್ಕೆ ತಮಗೆ ಆದರದ ಆಹ್ವಾನ</span>
+                </p>
+                <p class="names-reveal">
+                    <span class="en-inline">Priya</span>
+                    <span class="kn-inline" style="font-family:'Noto Sans Kannada',sans-serif; font-size: 34px; font-weight: bold;">ಪ್ರಿಯಾ</span>
+                </p>
+                <span class="text-secondary-accent" style="font-family:'Great Vibes',cursive; font-size:28px;">
+                    <span class="en-inline">&</span>
+                    <span class="kn-inline" style="font-family:'Noto Sans Kannada',sans-serif; font-size: 18px; font-weight: bold; margin: 0 4px;">ಮತ್ತು</span>
+                </span>
+                <p class="names-reveal" style="margin-top: -4px;">
+                    <span class="en-inline">Shivakumar</span>
+                    <span class="kn-inline" style="font-family:'Noto Sans Kannada',sans-serif; font-size: 34px; font-weight: bold;">ಶಿವಕುಮಾರ್</span>
+                </p>
+                <p class="date-reveal" style="margin-top: 16px;">
+                    <span class="en-inline">8th July 2026</span>
+                    <span class="kn-inline" style="font-family:'Noto Sans Kannada',sans-serif; font-size: 16px; font-weight: bold;">೮ ಜುಲೈ ೨೦೨೬</span>
+                </p>
+                <p class="wedding-day-text">
+                    <span class="en-inline">Engagement Day</span>
+                    <span class="kn-inline" style="font-family:'Noto Sans Kannada',sans-serif; font-size: 14px; font-weight: bold;">ನಿಶ್ಚಿತಾರ್ಥದ ದಿನ</span>
+                </p>
             </div>
 
             <!-- LEFT FLAP -->
@@ -558,16 +574,23 @@
             </div>
 
             <!-- Tap to Reveal text -->
-            <div class="tap-text" id="tapText">Tap To Reveal</div>
+            <div class="tap-text" id="tapText">
+                <span class="en-inline">Tap To Reveal</span>
+                <span class="kn-inline" style="font-family:'Noto Sans Kannada',sans-serif; font-size: 14px; font-weight: bold;">ತೆರೆಯಲು ಟ್ಯಾಪ್ ಮಾಡಿ</span>
+            </div>
         </div>
 
         <!-- Music Experience Overlay Text -->
         <div id="music-overlay-text" class="absolute bottom-24 left-1/2 -translate-x-1/2 text-[#FAF5EB]/90 font-body text-[15px] tracking-widest uppercase bg-black/40 backdrop-blur-md px-6 py-2.5 rounded-full border border-[#B59A6D]/20 shadow-lg text-center select-none pointer-events-none transition-opacity duration-700 z-30 animate-pulse">
-            Tap to experience with music 🎶
+            <span class="en-inline">Tap to experience with music 🎶</span>
+            <span class="kn-inline" style="font-family:'Noto Sans Kannada',sans-serif; font-size: 13px; font-weight: bold; letter-spacing: 0.05em;">ಸಂಗೀತದೊಂದಿಗೆ ಆಲಿಸಲು ಟ್ಯಾಪ್ ಮಾಡಿ 🎶</span>
         </div>
 
         <!-- Bottom "Engagement Day" watermark -->
-        <p class="absolute bottom-8 left-1/2 -translate-x-1/2 text-[#B59A6D] font-headings text-2xl opacity-40 z-10" style="font-family:'Great Vibes',cursive;">Engagement Day</p>
+        <p class="absolute bottom-8 left-1/2 -translate-x-1/2 text-[#B59A6D] font-headings text-2xl opacity-40 z-10">
+            <span class="en-inline" style="font-family:'Great Vibes',cursive;">Engagement Day</span>
+            <span class="kn-inline" style="font-family:'Noto Sans Kannada',sans-serif; font-size: 16px; font-weight: bold; letter-spacing: 0.05em;">ನಿಶ್ಚಿತಾರ್ಥದ ದಿನ</span>
+        </p>
     </div>
 
     <!-- ============================================== -->
@@ -587,16 +610,28 @@
                     <span class="kn-inline">ಶ್ರೀರಸ್ತು! ಶುಭಮಸ್ತು!! ಅವಿಘ್ನಮಸ್ತು!!!</span>
                 </p>
 
-                <h1 class="text-primary-accent text-[3.5rem] md:text-[5rem] font-headings mb-0 drop-shadow-sm leading-none">Priya</h1>
-                <span class="text-4xl md:text-5xl text-secondary-accent font-headings my-3 drop-shadow-sm">&</span>
-                <h1 class="text-primary-accent text-[3.5rem] md:text-[5rem] font-headings mb-8 drop-shadow-sm leading-none">Shivakumar</h1>
+                <h1 class="text-primary-accent text-[3.5rem] md:text-[5rem] font-headings mb-0 drop-shadow-sm leading-none">
+                    <span class="en-inline">Priya</span>
+                    <span class="kn-inline" style="font-family:'Noto Sans Kannada',sans-serif; font-size: 3.5rem; font-weight: bold;">ಪ್ರಿಯಾ</span>
+                </h1>
+                <span class="text-4xl md:text-5xl text-secondary-accent font-headings my-3 drop-shadow-sm">
+                    <span class="en-inline">&</span>
+                    <span class="kn-inline" style="font-family:'Noto Sans Kannada',sans-serif; font-size: 2.2rem; font-weight: bold;">ಮತ್ತು</span>
+                </span>
+                <h1 class="text-primary-accent text-[3.5rem] md:text-[5rem] font-headings mb-8 drop-shadow-sm leading-none">
+                    <span class="en-inline">Shivakumar</span>
+                    <span class="kn-inline" style="font-family:'Noto Sans Kannada',sans-serif; font-size: 3.5rem; font-weight: bold;">ಶಿವಕುಮಾರ್</span>
+                </h1>
                 
                 <div class="w-full max-w-[90%]">
                     <p class="text-text-primary text-xl md:text-2xl font-body italic mb-4">
                         <span class="en-inline">Together, we begin our forever.</span>
                         <span class="kn-inline">ಒಟ್ಟಿಗೆ, ನಾವು ನಮ್ಮ ಶಾಶ್ವತತೆಯನ್ನು ಪ್ರಾರಂಭಿಸುತ್ತೇವೆ.</span>
                     </p>
-                    <p class="text-primary-accent text-sm md:text-base font-body lining-nums mb-6 font-semibold tracking-[0.2em] uppercase">8th July 2026</p>
+                    <p class="text-primary-accent text-sm md:text-base font-body lining-nums mb-6 font-semibold tracking-[0.2em] uppercase">
+                        <span class="en-inline">8th July 2026</span>
+                        <span class="kn-inline" style="font-family:'Noto Sans Kannada',sans-serif; font-size: 15px; font-weight: bold;">೮ ಜುಲೈ ೨೦೨೬</span>
+                    </p>
                 </div>
 
                 <div class="w-full max-w-[85%] h-[1px] bg-borders-dividers mb-8"></div>
@@ -794,9 +829,13 @@
                 </p>
                 
                 <div class="bg-bg-primary p-8 md:p-12 rounded-2xl shadow-soft border border-borders-dividers/50 inline-block w-full max-w-xl">
-                    <h3 class="text-3xl md:text-4xl font-body text-primary-accent font-bold mb-3">Khuba Kalyan Mantap</h3>
+                    <h3 class="text-3xl md:text-4xl font-body text-primary-accent font-bold mb-3">
+                        <span class="en-inline">Khuba Kalyan Mantap</span>
+                        <span class="kn-inline" style="font-family:'Noto Sans Kannada',sans-serif; font-size: 28px; font-weight: bold;">ಖುಬಾ ಕಲ್ಯಾಣ ಮಂಟಪ</span>
+                    </h3>
                     <p class="text-base md:text-lg text-text-secondary font-body mb-8 max-w-md mx-auto leading-relaxed">
-                        Super Market Main Rd, Khuba Plot, Brhampur, Kalaburagi, Karnataka 585102
+                        <span class="en-text">Super Market Main Rd, Khuba Plot, Brhampur, Kalaburagi, Karnataka 585102</span>
+                        <span class="kn-text leading-loose" style="font-family:'Noto Sans Kannada',sans-serif; font-size: 16px; font-style: normal; font-weight: 500;">ಸೂಪರ್ ಮಾರ್ಕೆಟ್ ಮುಖ್ಯ ರಸ್ತೆ, ಖುಬಾ ಪ್ಲಾಟ್, ಬ್ರಹ್ಮಪುರ, ಕಲಬುರಗಿ, ಕರ್ನಾಟಕ ೫೮೫೧೦೨</span>
                     </p>
                     
                     <!-- Interactive Map Card -->
@@ -913,7 +952,8 @@
                     <div class="w-16 h-[1px] bg-secondary-accent"></div>
                 </div>
                 <p class="font-body text-sm md:text-base font-semibold uppercase tracking-[0.3em] text-secondary-accent">
-                   Priya & Shivakumar · 8th July 2026
+                   <span class="en-inline">Priya & Shivakumar · 8th July 2026</span>
+                   <span class="kn-inline" style="font-family:'Noto Sans Kannada',sans-serif; font-size: 15px; font-weight: bold; letter-spacing: 0.05em;">ಪ್ರಿಯಾ ಮತ್ತು ಶಿವಕುಮಾರ್ · ೮ ಜುಲೈ ೨೦೨೬</span>
                 </p>
             </div>
         </section>
