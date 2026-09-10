@@ -9,23 +9,40 @@
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💕💍</text></svg>">
     <meta name="description" content="You are cordially invited to the wedding celebration of Priya Deshmukh & Shivakumar Kadari. 15 November 2026 at Deshmukh Nivas, Mangalgi.">
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Priya & Shivakumar — You're Invited! 💍">
-    <meta property="og:description" content="Join us for the wedding celebration of Priya & Shivakumar. 15 November 2026.">
-    <meta property="og:image" content="images/og-image.jpg">
+    <!-- ============================================================
+         SOCIAL SHARING
+         og:image MUST be an absolute URL - WhatsApp and Facebook will not
+         resolve a relative path. Replace the origin below with the real
+         deployed domain and nothing else needs to change.
+         ============================================================ -->
+    <link rel="canonical" href="https://priya-shivu-invitation.vercel.app/">
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="Priya & Shivakumar — You're Invited! 💍">
-    <meta property="twitter:description" content="Join us for the wedding celebration of Priya & Shivakumar. 15 November 2026.">
-    <meta property="twitter:image" content="images/og-image.jpg">
+    <meta property="og:type"        content="website">
+    <meta property="og:site_name"   content="Priya &amp; Shivakumar">
+    <meta property="og:locale"      content="en_IN">
+    <meta property="og:url"         content="https://priya-shivu-invitation.vercel.app/">
+    <meta property="og:title"       content="Priya &amp; Shivakumar — Wedding Invitation">
+    <meta property="og:description" content="Together with our families, we invite you to celebrate our wedding. 15 November 2026, Deshmukh Nivas, Mangalgi.">
+    <meta property="og:image"       content="https://priya-shivu-invitation.vercel.app/images/og-image.jpg">
+    <meta property="og:image:secure_url" content="https://priya-shivu-invitation.vercel.app/images/og-image.jpg">
+    <meta property="og:image:type"  content="image/jpeg">
+    <meta property="og:image:width"  content="1024">
+    <meta property="og:image:height" content="1536">
+    <meta property="og:image:alt"   content="Wedding invitation for Priya and Shivakumar, 15 November 2026">
+
+    <meta name="twitter:card"        content="summary_large_image">
+    <meta name="twitter:title"       content="Priya &amp; Shivakumar — Wedding Invitation">
+    <meta name="twitter:description" content="Together with our families, we invite you to celebrate our wedding. 15 November 2026, Deshmukh Nivas, Mangalgi.">
+    <meta name="twitter:image"       content="https://priya-shivu-invitation.vercel.app/images/og-image.jpg">
+    <meta name="twitter:image:alt"   content="Wedding invitation for Priya and Shivakumar, 15 November 2026">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&family=Tiro+Kannada:ital@0;1&family=Anek+Kannada:wdth,wght@75..125,300..600&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&family=Tiro+Kannada:ital@0;1&family=Anek+Kannada:wdth,wght@75..125,300..600&display=swap" rel="stylesheet">
+
+    <script src="https://www.youtube.com/iframe_api" defer></script>
 
     <!-- GSAP + ScrollTrigger (cinematic scroll architecture) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
@@ -171,7 +188,7 @@
         .meta { font-family: var(--font-sans); font-size: 11.5px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-3); }
         .kn-font.lede, .kn-font.body-copy { line-height: 2.05; }
 
-        /* dark chapters invert the ink */
+        /* dark sections invert the ink */
         .on-dark, .on-dark h1, .on-dark h2, .on-dark h3 { color: var(--paper-1); }
         .on-dark .body-copy { color: var(--paper-2); }
         .on-dark .lede      { color: var(--paper-1); }
@@ -180,8 +197,27 @@
 
         /* on dark grounds the ink-gold disappears - flip to the light one */
         .on-dark .text-gold, .on-dark .text-gold\/30, .on-dark .text-gold\/60,
-        .on-dark .text-gold\/70, .on-dark .eyebrow, .on-dark .chapter-index,
+        .on-dark .text-gold\/70, .on-dark .eyebrow, .on-dark .story-lead-in,
         .on-dark h2 .en-inline, .on-dark h2 .kn-inline { color: var(--gold-light); }
+
+        /* ----- corner radius: 12px on cards & photographs, 8px on CTAs.
+           overflow:hidden on every figure so the image corners actually clip. */
+        :root { --r-card: 12px; --r-cta: 8px; }
+
+        .story-plate img,
+        .story-figure,
+        .chapter-figure,
+        .dress-figure img,
+        .hero-fallback              { border-radius: var(--r-card); }
+        .story-figure, .dress-figure { overflow: hidden; }
+
+        .event-modal-card           { border-radius: var(--r-card); }
+        .dress-block                { border-radius: var(--r-card); overflow: hidden; }
+        .modal-desc-box             { border-radius: var(--r-card); }
+
+        .modal-btn, .btn-quiet,
+        .map-button-premium,
+        .modal-directions-btn       { border-radius: var(--r-cta); }
 
         .rule-thin { height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
 
@@ -259,6 +295,11 @@
         .scene-bg    { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
         .scene-decor { position: absolute; inset: 0; z-index: 3; pointer-events: none; }
         /* car layer reserved for the next phase — kept so z-order is settled now */
+        /* the YouTube player is audio-only here: kept in the DOM (it must be
+           rendered for the API to work) but visually removed */
+        #yt-music { position: fixed; width: 1px; height: 1px; left: -9999px; top: -9999px;
+                    opacity: 0; pointer-events: none; }
+
         .layer-vehicle { position: fixed; inset: 0; z-index: 60; pointer-events: none; }
 
         /* paper grain shared by light scenes */
@@ -327,8 +368,7 @@
         }
         body.menu-open .nav-sheet a { opacity: 1; transform: none; }
         body.menu-open .nav-sheet a:nth-child(1){transition-delay:.06s} body.menu-open .nav-sheet a:nth-child(2){transition-delay:.12s}
-        body.menu-open .nav-sheet a:nth-child(3){transition-delay:.18s} body.menu-open .nav-sheet a:nth-child(4){transition-delay:.24s}
-        body.menu-open .nav-sheet a:nth-child(5){transition-delay:.30s}
+        body.menu-open .nav-sheet a:nth-child(3){transition-delay:.18s}
 
         @media (max-width: 860px) {
             .nav-float { left: var(--gutter); right: var(--gutter); transform: translateY(-140%); width: auto; max-width: none;
@@ -356,9 +396,16 @@
                their left — his face sits at ~30-47% of the width, so a purely
                horizontal fade would haze him. The dissolve is therefore anchored
                top-left and feathers down and right, clearing them entirely. */
-            --hero-bleed: 104%;      /* anchored left: nudges the pair rightward */
-            --hero-x: left;
-            --hero-y: 30%;           /* drops their heads clear of the wordmark  */
+            /* Measured on the actual frame: the wall runs 0-38%, the groom's
+               face 41-48%, the bride's 45-53%, bodies below. The whole job of
+               these three values is to keep that 41-53% face band inside the
+               first viewport with real margin under it, while leaving the
+               upper wall free for the wordmark.
+               Bleed is 100% - any horizontal zoom deepens the VERTICAL crop
+               on a portrait source, which is what was clipping their faces. */
+            --hero-bleed: 100%;
+            --hero-x: center;
+            --hero-y: 36%;
             /* ivory dissolve */
             --wash-1: 0.97; --wash-2: 0.90; --wash-3: 0.66;
             --wash-4: 0.32; --wash-5: 0.10;
@@ -439,6 +486,16 @@
             letter-spacing: .3em; text-transform: uppercase; color: var(--maroon); white-space: nowrap; }
         .hero-support { margin-top: clamp(14px,2vh,22px); max-width: 30ch; }
 
+        /* Short landscape phones: viewport is wide but only ~375px tall, so the
+           type block must narrow or it crowds the couple. */
+        @media (max-width: 900px) and (orientation: landscape) and (max-height: 520px) {
+            .hero-copy    { width: min(56%, 420px); padding-block: clamp(52px,13vh,72px) 0; }
+            .hero-names   { font-size: clamp(28px, 9vh, 44px); }
+            .hero-eyebrow { margin-bottom: 10px; }
+            .hero-meta-row{ margin-top: 12px; }
+            .hero-support { font-size: 12.5px; max-width: 30ch; margin-top: 8px; }
+        }
+
         .hero-scroll { position: absolute; z-index: 10; bottom: clamp(20px,3.6vh,38px);
             left: var(--gutter); display: flex; align-items: center; gap: 12px; }
         .hero-scroll-label { font-family: var(--font-sans); font-size: 9.5px; font-weight: 400;
@@ -448,13 +505,21 @@
             animation: scrollTrail 2.6s cubic-bezier(.7,0,.3,1) infinite; }
         @keyframes scrollTrail { 0%{transform:translateX(-20px);opacity:0} 35%{opacity:1} 100%{transform:translateX(56px);opacity:0} }
 
-        @media (min-width: 1440px) { .scene-hero { --hero-bleed: 108%; } }
+        /* The shorter the window relative to its width, the narrower the
+           visible slice of a 2:3 photograph - so the focal point has to move
+           DOWN to keep the faces off the bottom edge. Measured, not guessed. */
+        @media (min-width: 861px) and (min-aspect-ratio: 16/9)  { .scene-hero { --hero-y: 40%; } }
+        @media (min-width: 861px) and (min-aspect-ratio: 1.95/1) { .scene-hero { --hero-y: 43%; } }
+        @media (min-width: 861px) and (max-aspect-ratio: 1.4/1) { .scene-hero { --hero-y: 32%; } }
 
         /* ---- MOBILE: the negative space is at the TOP of this frame, so the
            dissolve runs vertically instead of horizontally. Full height of the
            photograph stays visible, so neither face is ever cropped. ---- */
         @media (max-width: 860px) {
-            .scene-hero { --hero-bleed: 100%; --hero-x: 52%; --hero-y: center; }
+            /* Mobile is a separate crop: the viewport is narrower than the
+               photograph's 2:3, so the FULL height is visible and the sides
+               crop instead. Both faces are always in frame here. */
+            .scene-hero { --hero-bleed: 100%; --hero-x: 54%; --hero-y: center; }
             .hero-haze {
                 -webkit-mask-image: linear-gradient(184deg,
                     #000 0%, #000 17%, rgba(0,0,0,.6) 28%, rgba(0,0,0,.22) 36%, transparent 46%);
@@ -490,34 +555,88 @@
         }
 
         /* ================================================================
-           STORY — asymmetric editorial chapters, no cards
+           STORY — asymmetric editorial composition, no cards
            ================================================================ */
         .scene-story { background: var(--ivory); padding: var(--section-y) 0; }
         .story-open { display: grid; grid-template-columns: 1fr; gap: clamp(24px,4vw,64px); margin-bottom: clamp(72px,11vh,140px); }
         .story-open-statement { max-width: 20ch; }
         .story-open-note { max-width: 46ch; }
 
-        .chapter { display: grid; grid-template-columns: 1fr; gap: clamp(20px,3.4vw,56px);
-                   align-items: start; padding-block: clamp(40px,6.5vh,88px); }
-        .chapter + .chapter { border-top: 1px solid var(--rule); }
-        .chapter-index { font-family: var(--font-sans); font-size: 10.5px; font-weight: 600; letter-spacing: 0.26em;
-                         text-transform: uppercase; color: var(--gold-ink); }
-        .chapter-title { margin-top: 10px; }
-        .chapter-body { margin-top: clamp(12px,1.6vh,18px); max-width: 52ch; }
-        .chapter-figure { position: relative; overflow: hidden; background: var(--sand); aspect-ratio: 4/5; }
-        .chapter-figure img { width:100%; height:100%; object-fit:cover; display:block; }
-        .chapter-figure .ph { position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
-            font-family: var(--font-sans); font-size:9.5px; letter-spacing:.2em; text-transform:uppercase;
-            color: var(--ink-3); font-weight: 500; background: repeating-linear-gradient(135deg, var(--sand) 0 12px, var(--sand-deep) 12px 24px); }
+        /* Story parts. Only one approved photograph exists, so the section is
+           composed as statement -> photograph -> statement rather than three
+           identical text+image rows. The two text parts are deliberately
+           offset and set at reading scale so they read as intentional
+           editorial columns, not as rows with a missing picture. */
+        .story-part { padding-block: clamp(40px,6.5vh,88px); }
+        .story-part + .story-part { border-top: 1px solid var(--rule); }
+        .story-title { margin-top: 0; }
+        .story-body { margin-top: clamp(12px,1.6vh,18px); max-width: 54ch; }
+
+        /* a short gold rule stands in for the old index label */
+        .story-rule {
+            display: block; width: 44px; height: 1px;
+            background: var(--gold); margin-bottom: clamp(16px,2.2vh,24px);
+        }
+
+        /* --- text-only parts --- */
+        .story-part--text .story-body { font-size: clamp(16px,1.35vw,18.5px); line-height: 1.8; }
+        .story-lead-in {
+            font-family: var(--font-sans); font-size: 11px; font-weight: 600;
+            letter-spacing: .2em; text-transform: uppercase; color: var(--gold-ink);
+            margin-bottom: 14px;
+        }
+        /* the two households, lifted out of the paragraph and given their own
+           typographic weight - on an Indian invitation these names carry rank */
+        .family-names { margin: 0 0 clamp(14px,2vh,20px); }
+        .family-names span {
+            font-family: var(--font-display); font-weight: 400;
+            font-size: clamp(20px,2.4vw,29px); line-height: 1.45; color: var(--ink-1);
+        }
+        /* each household on its own line, WITHOUT outranking the language toggle */
+        .family-names .en-text { display: block; }
+        .family-names .kn-text { display: none; }
+        body.kannada .family-names .en-text { display: none; }
+        body.kannada .family-names .kn-text { display: block; }
+        .family-names .en-text + .en-text,
+        body.kannada .family-names .kn-text + .kn-text { margin-top: 4px; }
+        .family-names .kn-text { font-size: clamp(17px,2vw,24px); line-height: 1.85; }
+
+        /* --- photograph part --- */
+        .story-part--media { display: grid; grid-template-columns: 1fr; gap: clamp(22px,3.4vw,56px); align-items: center; }
+
+        /* A wide group portrait: shown edge-to-edge across the measure rather
+           than boxed, so it reads as a plate in a printed book. No radius,
+           no card, no shadow. */
+        .story-plate { margin: clamp(28px,4.5vh,56px) 0 0; }
+        .story-plate img { width: 100%; height: auto; display: block; }
+        .story-plate figcaption {
+            margin-top: 12px; font-family: var(--font-sans); font-size: 10.5px;
+            font-weight: 600; letter-spacing: .2em; text-transform: uppercase;
+            color: var(--ink-3);
+        }
+        .story-figure { position: relative; overflow: hidden; background: var(--sand); aspect-ratio: 4/5; margin: 0; }
+        .story-figure img {
+            width: 100%; height: 100%; object-fit: cover;
+            /* their faces sit in the upper-middle of this frame */
+            object-position: center 30%; display: block;
+        }
+        .story-caption {
+            margin-top: 10px; font-family: var(--font-sans); font-size: 10.5px;
+            font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-3);
+        }
 
         @media (min-width: 861px) {
             .story-open { grid-template-columns: 1.15fr 1fr; align-items: end; }
-            .chapter { grid-template-columns: 0.9fr 1.1fr; gap: clamp(40px,6vw,96px); align-items: center; }
-            /* alternate the rhythm so the page never feels like a stack of rows */
-            .chapter:nth-child(even) .chapter-text   { order: 2; }
-            .chapter:nth-child(even) .chapter-figure { order: 1; }
-            .chapter:nth-child(odd)  .chapter-figure { margin-top: clamp(20px,4vh,56px); }
-            .chapter:nth-child(even) .chapter-figure { margin-bottom: clamp(20px,4vh,56px); aspect-ratio: 1/1; }
+            .story-part--media { grid-template-columns: 0.95fr 1.05fr; gap: clamp(40px,6vw,88px); }
+            .story-part--media .story-figure { order: 1; }
+            .story-part--media .story-text   { order: 2; }
+            /* alternate the two text parts to opposite sides so the section has
+               a rhythm of its own instead of a stack of left-aligned blocks */
+            .story-part--text .story-text { max-width: 62ch; }
+            /* the plate spans the full measure even though its text does not */
+            .story-part.has-plate .story-plate { max-width: none; }
+            .story-part--text.is-offset .story-text { margin-inline-start: auto; text-align: left; }
+            .story-part--text.is-offset .story-rule { margin-inline-start: 0; }
         }
 
         /* ================================================================
@@ -651,35 +770,49 @@
         }
         .event-modal.active { opacity: 1; visibility: visible; }
         .event-modal-card {
-            position: relative; width: min(520px, 92vw); max-height: 90vh;
-            overflow-y: auto; overflow-x: hidden;
-            background: linear-gradient(170deg, #FFFDF7 0%, #F5E6D3 100%);
-            border: 1px solid rgba(201,168,76,0.3);
-            box-shadow: 0 25px 80px rgba(0,0,0,0.5);
+            position: relative; width: min(520px, 92vw);
+            max-height: min(90vh, 90dvh);
+            display: flex; flex-direction: column;   /* header | scroll body | actions */
+            overflow: hidden;
+            background: var(--ivory);
+            border: 1px solid rgba(138,106,58,0.22);
+            box-shadow: 0 18px 48px -18px rgba(31,23,20,0.42);
             transform: scale(0.92) translateY(20px);
             transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .event-modal.active .event-modal-card { transform: scale(1) translateY(0); }
-        /* close control: 44px hit area, optically centred glyph */
+        .event-modal-card:focus { outline: none; }
+        /* Close: the GLYPH is small and quiet (a 13px hairline cross), while the
+           button keeps a full 44x44 tap target around it. No circle, no fill -
+           on a printed-invitation surface a chrome button would read as UI. */
         .event-modal-close {
-            position: absolute; top: 14px; right: 14px; z-index: 10;
-            width: 44px; height: 44px; border-radius: 50%;
-            border: 1px solid rgba(251,248,242,0.28);
-            background: rgba(56,16,21,0.55); color: var(--paper-1);
-            font-family: var(--font-sans); font-size: 22px; font-weight: 300;
-            line-height: 1; cursor: pointer;
+            position: absolute; top: 8px; right: 8px; z-index: 10;
+            width: 44px; height: 44px; padding: 0;
+            border: none; background: none; cursor: pointer;
             display: flex; align-items: center; justify-content: center;
-            transition: background .3s ease, border-color .3s ease;
+            color: var(--paper-2); opacity: .85;
+            transition: opacity .25s ease, color .25s ease;
         }
-        .event-modal-close span { display: block; margin-top: -2px; }
-        .event-modal-close:hover { background: rgba(56,16,21,0.85); border-color: var(--gold-light); }
-        .event-modal-close:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 2px; }
+        .event-modal-close svg { width: 13px; height: 13px; display: block; }
+        .event-modal-close:hover { opacity: 1; color: var(--gold-light); }
+        .event-modal-close:focus-visible { outline: 1px solid var(--gold-light); outline-offset: -8px; opacity: 1; }
 
         /* header: no icon, no shine - a wine plate with an editorial wordmark */
+        /* #event-modal-body is the innerHTML target and sits between the card and
+           the header/scroll/actions, so IT has to be the flex column - otherwise
+           the card's own flex applies to [close button, body] and the body just
+           grows past the card. */
+        #event-modal-body {
+            flex: 1 1 auto; min-height: 0;
+            display: flex; flex-direction: column;
+        }
+
+        /* header is a non-shrinking flex child, so it never scrolls away */
         .event-modal-header {
             background: var(--maroon-deep);
-            padding: clamp(38px,7vw,56px) clamp(26px,5vw,40px) clamp(26px,4vw,34px);
-            position: relative;
+            padding: clamp(26px,5vw,38px) clamp(26px,5vw,40px) clamp(20px,3.4vw,26px);
+            padding-right: clamp(56px,10vw,72px);   /* clears the close control */
+            position: relative; flex: 0 0 auto; z-index: 2;
         }
         .event-modal-header::after {
             content: ''; position: absolute; left: clamp(26px,5vw,40px); bottom: 0;
@@ -697,6 +830,12 @@
         }
 
         /* details: a definition list on hairlines - no icons */
+        /* the only scrolling region */
+        .modal-scroll {
+            flex: 1 1 auto; min-height: 0;
+            overflow-y: auto; overflow-x: hidden;
+            -webkit-overflow-scrolling: touch; overscroll-behavior: contain;
+        }
         .modal-detail-grid { padding: clamp(24px,4vw,32px) clamp(26px,5vw,40px) 4px; }
         .modal-detail-row {
             display: grid; grid-template-columns: 1fr; gap: 2px;
@@ -714,7 +853,15 @@
             font-family: var(--font-display); font-size: 17.5px; font-weight: 500;
             color: var(--ink-1); line-height: 1.5;
         }
-        .modal-footer { padding: clamp(18px,3vw,24px) clamp(26px,5vw,40px) clamp(28px,5vw,40px); }
+        .modal-footer { padding: clamp(18px,3vw,24px) clamp(26px,5vw,40px) 0; }
+        /* actions pinned to the foot of the card, above the scrolling content */
+        .modal-actions-bar {
+            flex: 0 0 auto; z-index: 2;
+            padding: clamp(14px,2.6vw,18px) clamp(26px,5vw,40px)
+                     calc(clamp(16px,3vw,22px) + env(safe-area-inset-bottom, 0px));
+            background: var(--ivory);
+            border-top: 1px solid rgba(138,106,58,0.20);
+        }
         .modal-desc {
             font-family: var(--font-display); font-size: 16.5px; font-weight: 400;
             font-style: italic; line-height: 1.75; color: var(--ink-2);
@@ -757,9 +904,16 @@
             background: rgba(201,168,76,0.05);
             border: 1px solid rgba(201,168,76,0.22);
         }
-        .dress-figure { margin: 0; background: var(--maroon-deep); border-bottom: 1px solid rgba(201,168,76,0.22); }
+        .dress-figure { margin: 0; background: var(--maroon-deep); border-bottom: 1px solid rgba(138,106,58,0.22); }
+        /* understated editorial caption - a line of type, never a badge or pill */
+        .dress-figure figcaption {
+            padding: 9px clamp(18px,4vw,22px) 0;
+            font-family: var(--font-sans); font-size: 9.5px; font-weight: 600;
+            letter-spacing: .24em; text-transform: uppercase; color: var(--ink-3);
+            background: var(--ivory);
+        }
         /* width:100% + height:auto keeps the photo's natural composition — never cropped */
-        .dress-figure img { display: block; width: 100%; height: auto; }
+        .dress-figure img { display: block; width: 100%; height: auto; border-radius: 0; }
         .dress-body { padding: 20px 22px 22px; }
         .dress-title { font-family: var(--font-display); font-size: 30px; color: var(--maroon); text-align: center; line-height: 1.2; }
         .dress-theme {
@@ -788,7 +942,7 @@
             display: inline-flex; align-items: center; justify-content: center; gap: 8px;
             padding: 10px 28px;
             background: var(--maroon);
-            color: var(--paper-1); border-radius: 9999px; font-size: 0.875rem;
+            color: var(--paper-1); border-radius: var(--r-cta); font-size: 0.875rem;
             font-family: 'Cormorant Garamond', serif; font-weight: 600; letter-spacing: 0.05em;
             text-transform: uppercase; text-decoration: none;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -801,9 +955,9 @@
            Covers only the utilities this page actually uses. The CDN was a
            ~400KB render-blocking runtime JIT that logged a production
            warning, caused FOUC, and took the layout down if unreachable.
-           These utilities live only in the legacy sections (Gallery,
-           Details, Countdown, Closing); when Phase B rewrites those, this
-           whole block is deleted with them.
+           These utilities live only in the legacy sections (Details,
+           Countdown, Closing); when Phase B rewrites those, this whole
+           block is deleted with them.
            ================================================================ */
         .container{width:100%;margin-inline:auto}
         @media(min-width:640px){.container{max-width:640px}}
@@ -917,9 +1071,10 @@
 <body class="bg-parchment text-ink font-body overflow-x-hidden">
 
     <!-- ===== BACKGROUND MUSIC ===== -->
-    <audio id="bg-music" loop preload="auto">
-        <source src="music.m4a" type="audio/mp4">
-    </audio>
+    <!-- Background music: played through YouTube's official IFrame player.
+         The track is a copyrighted recording, so it is embedded rather than
+         extracted - that keeps playback licensed through YouTube. -->
+    <div id="yt-music" aria-hidden="true"></div>
 
     <!-- ===== FLOATING NAVIGATION ===== -->
     <nav class="nav-float" id="navFloat" aria-label="Primary">
@@ -929,8 +1084,6 @@
                 <span class="en-inline">Our Story</span><span class="kn-inline kn-font kn-label">ನಮ್ಮ ಕಥೆ</span></a>
             <a href="#events">
                 <span class="en-inline">Events</span><span class="kn-inline kn-font kn-label">ಸಮಾರಂಭಗಳು</span></a>
-            <a href="#gallery">
-                <span class="en-inline">Gallery</span><span class="kn-inline kn-font kn-label">ಗ್ಯಾಲರಿ</span></a>
             <a href="#details">
                 <span class="en-inline">Details</span><span class="kn-inline kn-font kn-label">ವಿವರಗಳು</span></a>
         </div>
@@ -946,7 +1099,6 @@
     <div class="nav-sheet" id="navSheet" aria-hidden="true">
         <a href="#story"   onclick="closeMenu()"><span class="en-inline">Our Story</span><span class="kn-inline kn-font kn-label">ನಮ್ಮ ಕಥೆ</span></a>
         <a href="#events"  onclick="closeMenu()"><span class="en-inline">Events</span><span class="kn-inline kn-font kn-label">ಸಮಾರಂಭಗಳು</span></a>
-        <a href="#gallery" onclick="closeMenu()"><span class="en-inline">Gallery</span><span class="kn-inline kn-font kn-label">ಗ್ಯಾಲರಿ</span></a>
         <a href="#details" onclick="closeMenu()"><span class="en-inline">Details</span><span class="kn-inline kn-font kn-label">ವಿವರಗಳು</span></a>
     </div>
 
@@ -1107,7 +1259,7 @@
         </section>
 
 
-        <!-- ===== STORY — the beginning + three chapters ===== -->
+        <!-- ===== STORY — opening statement, then three parts ===== -->
         <section id="story" class="scene scene-story">
             <div class="wrap">
 
@@ -1127,49 +1279,73 @@
                     </p>
                 </div>
 
-                <!-- Chapter One -->
-                <article class="chapter reveal-up">
-                    <div class="chapter-text">
-                        <p class="chapter-index"><span class="en-inline">Chapter One</span><span class="kn-inline kn-font kn-label">ಅಧ್ಯಾಯ ಒಂದು</span></p>
-                        <h3 class="d3 chapter-title">
+                <!-- Two Families - the households, then the family photograph -->
+                <article class="story-part story-part--text has-plate reveal-up">
+                    <div class="story-text">
+                        <span class="story-rule" aria-hidden="true"></span>
+                        <h3 class="d3 story-title">
                             <span class="en-inline">Two Families</span><span class="kn-inline kn-font kn-d3">ಎರಡು ಕುಟುಂಬಗಳು</span>
                         </h3>
-                        <p class="body-copy chapter-body">
-                            <span class="en-text">With the blessings of Nagendrarao &amp; Sangeeta Deshmukh, and of Ishwar Kadari &amp; the late Shaila Kadari — two households that have known celebration, patience and love, now joined by one.</span>
-                            <span class="kn-text kn-font kn-body">ನಾಗೇಂದ್ರರಾವ್ ಮತ್ತು ಸಂಗೀತಾ ದೇಶಮುಖ್, ಹಾಗೂ ಈಶ್ವರ್ ಕದರಿ ಮತ್ತು ದಿವಂಗತ ಶೈಲಾ ಕದರಿ ಅವರ ಆಶೀರ್ವಾದದೊಂದಿಗೆ — ಆಚರಣೆ, ತಾಳ್ಮೆ ಮತ್ತು ಪ್ರೀತಿಯನ್ನು ಕಂಡ ಎರಡು ಮನೆಗಳು ಈಗ ಒಂದಾಗುತ್ತಿವೆ.</span>
+                        <p class="story-lead-in">
+                            <span class="en-inline">With the blessings of</span><span class="kn-inline kn-font kn-label">ಆಶೀರ್ವಾದದೊಂದಿಗೆ</span>
+                        </p>
+                        <p class="family-names">
+                            <span class="en-text">Nagendrarao &amp; Sangeeta Deshmukh</span>
+                            <span class="kn-text kn-font">ನಾಗೇಂದ್ರರಾವ್ ಮತ್ತು ಸಂಗೀತಾ ದೇಶಮುಖ್</span>
+                            <span class="en-text">Ishwar Kadari &amp; the late Shaila Kadari</span>
+                            <span class="kn-text kn-font">ಈಶ್ವರ್ ಕದರಿ ಮತ್ತು ದಿವಂಗತ ಶೈಲಾ ಕದರಿ</span>
+                        </p>
+                        <p class="body-copy story-body">
+                            <span class="en-text">Two households that have known celebration, patience and love, now joined by one.</span>
+                            <span class="kn-text kn-font kn-body">ಆಚರಣೆ, ತಾಳ್ಮೆ ಮತ್ತು ಪ್ರೀತಿಯನ್ನು ಕಂಡ ಎರಡು ಮನೆಗಳು ಈಗ ಒಂದಾಗುತ್ತಿವೆ.</span>
                         </p>
                     </div>
-                    <figure class="chapter-figure"><div class="ph">Photograph — chapter one</div></figure>
+                    <figure class="story-plate">
+                        <img src="images/families-background-1600.jpg"
+                             srcset="images/families-background-1000.jpg 1000w,
+                                     images/families-background-1600.jpg 1600w,
+                                     images/families-background-2200.jpg 2200w"
+                             sizes="(max-width: 860px) 100vw, min(1320px, 92vw)"
+                             alt="Priya and Shivakumar with both families at the engagement"
+                             width="1600" height="1069" loading="lazy" decoding="async">
+                    </figure>
                 </article>
 
-                <!-- Chapter Two -->
-                <article class="chapter reveal-up">
-                    <div class="chapter-text">
-                        <p class="chapter-index"><span class="en-inline">Chapter Two</span><span class="kn-inline kn-font kn-label">ಅಧ್ಯಾಯ ಎರಡು</span></p>
-                        <h3 class="d3 chapter-title">
+                <!-- A Journey Together - the one approved photograph -->
+                <article class="story-part story-part--media reveal-up">
+                    <figure class="story-figure">
+                        <img src="images/journey-together-1120.jpg"
+                             srcset="images/journey-together-760.jpg   760w,
+                                     images/journey-together-1120.jpg 1120w,
+                                     images/journey-together-1500.jpg 1500w"
+                             sizes="(max-width: 860px) 100vw, 46vw"
+                             alt="Priya and Shivakumar standing together, she leaning on his shoulder"
+                             width="1120" height="1680" loading="lazy" decoding="async">
+                    </figure>
+                    <div class="story-text">
+                        <span class="story-rule" aria-hidden="true"></span>
+                        <h3 class="d3 story-title">
                             <span class="en-inline">A Journey Together</span><span class="kn-inline kn-font kn-d3">ಒಟ್ಟಿಗೆ ಒಂದು ಪಯಣ</span>
                         </h3>
-                        <p class="body-copy chapter-body">
+                        <p class="body-copy story-body">
                             <span class="en-text">What began as an introduction between families became a friendship, and then a decision to build a life. The years since have been quiet, ordinary and entirely their own.</span>
                             <span class="kn-text kn-font kn-body">ಕುಟುಂಬಗಳ ನಡುವಿನ ಪರಿಚಯವಾಗಿ ಆರಂಭವಾದದ್ದು ಸ್ನೇಹವಾಯಿತು, ನಂತರ ಒಂದು ಜೀವನವನ್ನು ಕಟ್ಟುವ ನಿರ್ಧಾರವಾಯಿತು. ಅಂದಿನಿಂದ ಕಳೆದ ವರ್ಷಗಳು ಶಾಂತ, ಸರಳ ಮತ್ತು ಸಂಪೂರ್ಣವಾಗಿ ಅವರದೇ ಆಗಿವೆ.</span>
                         </p>
                     </div>
-                    <figure class="chapter-figure"><div class="ph">Photograph — chapter two</div></figure>
                 </article>
 
-                <!-- Chapter Three -->
-                <article class="chapter reveal-up">
-                    <div class="chapter-text">
-                        <p class="chapter-index"><span class="en-inline">Chapter Three</span><span class="kn-inline kn-font kn-label">ಅಧ್ಯಾಯ ಮೂರು</span></p>
-                        <h3 class="d3 chapter-title">
+                <!-- The Wedding - text-led, offset to the opposite side -->
+                <article class="story-part story-part--text is-offset reveal-up">
+                    <div class="story-text">
+                        <span class="story-rule" aria-hidden="true"></span>
+                        <h3 class="d3 story-title">
                             <span class="en-inline">The Wedding</span><span class="kn-inline kn-font kn-d3">ವಿವಾಹ</span>
                         </h3>
-                        <p class="body-copy chapter-body">
+                        <p class="body-copy story-body">
                             <span class="en-text">Turmeric in the morning, music by evening, and vows at first light at Deshmukh Nivas. Your presence is the part we are looking forward to most.</span>
                             <span class="kn-text kn-font kn-body">ಬೆಳಿಗ್ಗೆ ಅರಿಶಿಣ, ಸಂಜೆ ಸಂಗೀತ, ಮತ್ತು ದೇಶಮುಖ್ ನಿವಾಸದಲ್ಲಿ ಮೊದಲ ಬೆಳಕಿನಲ್ಲಿ ವಿವಾಹ. ನಿಮ್ಮ ಉಪಸ್ಥಿತಿಯೇ ನಾವು ಅತ್ಯಂತ ಎದುರುನೋಡುತ್ತಿರುವುದು.</span>
                         </p>
                     </div>
-                    <figure class="chapter-figure"><div class="ph">Photograph — chapter three</div></figure>
                 </article>
 
             </div>
@@ -1230,28 +1406,6 @@
                         <span class="en-inline">Add all events to calendar</span>
                         <span class="kn-inline kn-font kn-label">ಎಲ್ಲಾ ಸಮಾರಂಭಗಳನ್ನು ಕ್ಯಾಲೆಂಡರ್‌ಗೆ ಸೇರಿಸಿ</span>
                     </button>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- ===== §5 GALLERY (placeholder) ===== -->
-        <section id="gallery" class="scene on-dark py-20 md:py-28 text-center" style="background: linear-gradient(180deg, var(--green) 0%, var(--green-deep) 100%);">
-            <div class="container mx-auto px-6 max-w-2xl reveal-up">
-                <p class="font-ui text-gold text-[10px] font-semibold tracking-[0.5em] uppercase mb-6">
-                    <span class="en-inline">Cherished Moments</span>
-                    <span class="kn-inline kn-font kn-label">ಅಮೂಲ್ಯ ಕ್ಷಣಗಳು</span>
-                </p>
-                <h2 class="text-[clamp(40px,8vw,72px)] font-display mb-6 text-gold">
-                    <span class="en-inline">Our Moments</span>
-                    <span class="kn-inline kn-font kn-d2">ನಮ್ಮ ಕ್ಷಣಗಳು</span>
-                </h2>
-                <div class="ornament-divider opacity-30 mb-10"><div class="line"></div><span class="symbol">✦</span><div class="line"></div></div>
-                <div class="ornate-frame bg-white/5 border border-gold/10 p-16">
-                    <p class="text-lg font-body italic" style="color:var(--paper-3)">
-                        <span class="en-text">Photo gallery coming soon</span>
-                        <span class="kn-text kn-font kn-body">ಫೋಟೋ ಗ್ಯಾಲರಿ ಶೀಘ್ರದಲ್ಲಿ</span>
-                    </p>
                 </div>
             </div>
         </section>
@@ -1393,8 +1547,12 @@
 
     <!-- ===== EVENT DETAIL MODAL ===== -->
     <div id="event-modal" class="event-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="event-modal-title" onclick="if(event.target===this)closeEventModal()">
-        <div class="event-modal-card" id="event-modal-card">
-            <button class="event-modal-close" onclick="closeEventModal()" aria-label="Close"><span aria-hidden="true">×</span></button>
+        <div class="event-modal-card" id="event-modal-card" tabindex="-1">
+            <button class="event-modal-close" onclick="closeEventModal()" aria-label="Close">
+                <svg viewBox="0 0 13 13" fill="none" aria-hidden="true">
+                    <path d="M1 1 L12 12 M12 1 L1 12" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+                </svg>
+            </button>
             <div id="event-modal-body"></div>
         </div>
     </div>
@@ -1424,15 +1582,8 @@
             const gate = document.getElementById('card-gate');
             const mainContent = document.getElementById('main-content');
             wrapper.classList.add('opened');
-            const bgMusic = document.getElementById('bg-music');
-            if (bgMusic) {
-                bgMusic.volume = 0.3;
-                bgMusic.play().then(() => {
-                    isPlaying = true;
-                    document.getElementById('volume-on').classList.remove('hidden');
-                    document.getElementById('volume-off').classList.add('hidden');
-                }).catch(err => console.log("Audio play prevented:", err));
-            }
+            // the gate tap is the user gesture that unlocks audio playback
+            playMusic();
             const overlayText = document.getElementById('music-overlay-text');
             if (overlayText) overlayText.style.opacity = '0';
             setTimeout(() => { gate.classList.add('dismissed'); }, 600);
@@ -1515,35 +1666,74 @@
             });
         });
 
-        // ===== AUDIO TOGGLE =====
-        let isPlaying = false;
-        const bgMusic = document.getElementById('bg-music');
-        if (bgMusic) bgMusic.volume = 0.3;
-        function toggleAudio() {
-            if (!bgMusic) return;
+        // ===== BACKGROUND MUSIC (YouTube IFrame Player API) =====
+        // Same control, same play/pause behaviour, same gesture-gated start -
+        // only the source changed. Autoplay restrictions are respected: nothing
+        // plays until the guest taps the envelope or the speaker control.
+        const YT_VIDEO_ID = '5rABTHdFm9U';
+        let ytPlayer = null, ytReady = false, isPlaying = false, wantsPlay = false;
+        let userPaused = false;   // set when the guest pauses deliberately
+
+        function setMusicIcon(on) {
             const volOn = document.getElementById('volume-on');
             const volOff = document.getElementById('volume-off');
-            if (bgMusic.paused) {
-                bgMusic.play().then(() => { isPlaying = true; volOn.classList.remove('hidden'); volOff.classList.add('hidden'); }).catch(err => console.error("Play failed:", err));
-            } else {
-                bgMusic.pause(); isPlaying = false; volOn.classList.add('hidden'); volOff.classList.remove('hidden');
-            }
+            if (!volOn || !volOff) return;
+            volOn.classList.toggle('hidden', !on);
+            volOff.classList.toggle('hidden', on);
         }
-        document.getElementById('audio-toggle').addEventListener('click', (e) => { e.stopPropagation(); toggleAudio(); });
+
+        window.onYouTubeIframeAPIReady = function () {
+            ytPlayer = new YT.Player('yt-music', {
+                videoId: YT_VIDEO_ID,
+                playerVars: {
+                    autoplay: 0, controls: 0, disablekb: 1, fs: 0,
+                    modestbranding: 1, rel: 0, playsinline: 1,
+                    loop: 1, playlist: YT_VIDEO_ID
+                },
+                events: {
+                    onReady: () => {
+                        ytReady = true;
+                        ytPlayer.setVolume(30);
+                        if (wantsPlay) playMusic();
+                    },
+                    onStateChange: (e) => {
+                        if (e.data === YT.PlayerState.PLAYING) { isPlaying = true; setMusicIcon(true); }
+                        else if (e.data === YT.PlayerState.PAUSED || e.data === YT.PlayerState.ENDED) {
+                            isPlaying = false; setMusicIcon(false);
+                        }
+                        if (e.data === YT.PlayerState.ENDED) ytPlayer.playVideo(); // loop fallback
+                    },
+                    onError: () => { isPlaying = false; setMusicIcon(false); }
+                }
+            });
+        };
+
+        function playMusic() {
+            if (!ytReady || !ytPlayer) { wantsPlay = true; return; }
+            try { ytPlayer.playVideo(); } catch (e) { /* blocked until a gesture */ }
+            const ot = document.getElementById('music-overlay-text');
+            if (ot) ot.style.opacity = '0';
+        }
+        function pauseMusic() {
+            if (ytReady && ytPlayer) { try { ytPlayer.pauseVideo(); } catch (e) {} }
+            wantsPlay = false;
+        }
+        function toggleAudio() {
+            if (isPlaying) { userPaused = true;  pauseMusic(); }
+            else           { userPaused = false; playMusic();  }
+        }
+
+        document.getElementById('audio-toggle')
+                .addEventListener('click', (e) => { e.stopPropagation(); toggleAudio(); });
+
+        // first interaction anywhere also starts it, as before
         function initAudioAutoplay() {
             const startMusic = () => {
-                if (bgMusic && bgMusic.paused) {
-                    bgMusic.play().then(() => {
-                        isPlaying = true;
-                        const volOn = document.getElementById('volume-on'), volOff = document.getElementById('volume-off');
-                        if (volOn && volOff) { volOn.classList.remove('hidden'); volOff.classList.add('hidden'); }
-                        const ot = document.getElementById('music-overlay-text');
-                        if (ot) ot.style.opacity = '0';
-                    }).catch(() => {});
-                }
-                ['click','touchstart','keydown'].forEach(e => document.removeEventListener(e, startMusic));
+                // never fight a deliberate pause from the speaker control
+                if (!isPlaying && !userPaused) playMusic();
+                ['click','touchstart','keydown'].forEach(ev => document.removeEventListener(ev, startMusic));
             };
-            ['click','touchstart','keydown'].forEach(e => document.addEventListener(e, startMusic, { once: true }));
+            ['click','touchstart','keydown'].forEach(ev => document.addEventListener(ev, startMusic, { once: true }));
         }
         initAudioAutoplay();
 
@@ -1625,8 +1815,8 @@
                 scrollTrigger: { trigger: '#hero', start: 'top top', end: '18% top', scrub: true } });
 
             // ---- EDITORIAL TEXT + FIGURE REVEALS ----
-            gsap.utils.toArray('.chapter').forEach(ch => {
-                const fig = ch.querySelector('.chapter-figure');
+            gsap.utils.toArray('.story-part').forEach(ch => {
+                const fig = ch.querySelector('.story-figure');
                 if (fig) gsap.fromTo(fig,
                     { clipPath: 'inset(0% 0% 100% 0%)' },
                     { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.4, ease: 'power3.out',
@@ -1803,6 +1993,7 @@
                         <figure class="dress-figure">
                             <img src="${d.dress.image}" alt="${d.dress.altEn}" loading="lazy"
                                  onerror="this.closest('.dress-figure').remove();">
+                            <figcaption><span class="en-inline">Reference image</span><span class="kn-inline kn-font kn-label">ಉಲ್ಲೇಖ ಚಿತ್ರ</span></figcaption>
                         </figure>` : '';
                 const mood = d.dress.moodEn ? `
                             <p class="dress-mood">
@@ -1836,6 +2027,7 @@
                         <span class="kn-inline kn-font kn-d2">${d.nameKn}</span>
                     </h3>
                 </div>
+                <div class="modal-scroll">
                 <div class="modal-detail-grid">
                     ${row('Time', 'ಸಮಯ', d.timeEn, d.timeKn)}
                     ${row('Venue', 'ಸ್ಥಳ', d.venueEn, d.venueKn)}
@@ -1848,6 +2040,9 @@
                         <span class="kn-inline kn-font kn-body">${d.descKn}</span>
                     </p>
                     ${dressBlockHtml}
+                </div>
+                </div>
+                <div class="modal-actions-bar">
                     <div class="modal-actions">
                         <a href="${d.mapUrl}" target="_blank" rel="noopener" class="modal-btn modal-btn--solid">
                             <span class="en-inline">Get Directions</span><span class="kn-inline kn-font kn-label">ದಿಕ್ಕುಗಳು</span>
@@ -1864,8 +2059,13 @@
             document.body.style.overflow = 'hidden';
             // the panel is mid-transition (visibility) on this tick, so focus()
             // would be dropped - move it once the card is actually visible
-            const closeBtn = modal.querySelector('.event-modal-close');
-            if (closeBtn) requestAnimationFrame(() => setTimeout(() => closeBtn.focus(), 60));
+            const sc = modal.querySelector('.modal-scroll');
+            if (sc) sc.scrollTop = 0;
+            // Focus the dialog itself rather than the close control: focus must
+            // move into the dialog, but putting a visible ring on a control the
+            // moment it opens reads as chrome on a printed-invitation surface.
+            const card = document.getElementById('event-modal-card');
+            if (card) requestAnimationFrame(() => setTimeout(() => card.focus(), 60));
         }
 
         // keep keyboard focus inside the panel while it is open
