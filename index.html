@@ -537,12 +537,23 @@
                         rgba(251,248,242,.6) 27%, rgba(251,248,242,.26) 35%,
                         rgba(251,248,242,.07) 42%, rgba(251,248,242,0) 52%);
             }
+            /* Breathing room under the floating nav - the old value left only a
+               3px gap under the pill. A FIXED offset is used rather than a
+               bigger vh coefficient, so the increase is +20px on every phone
+               instead of drifting from 19px to 33px across 667-932 heights. */
             .hero-copy { width: 100%; justify-content: flex-start;
-                         padding-block: clamp(68px,9vh,96px) 0; }
+                         padding-block: calc(clamp(68px,9vh,96px) + 20px) 0; }
             .hero-names   { font-size: clamp(38px, min(9vw,10vh), 60px); }
             .hero-eyebrow { margin-bottom: clamp(14px,2vh,20px); }
             .hero-meta-row{ margin-top: clamp(18px,2.4vh,26px); }
             .hero-support { font-size: 13.5px; line-height: 1.7; margin-top: clamp(10px,1.4vh,14px); max-width: 34ch; }
+        }
+
+        /* iPhone SE / 8 class: only ~43px of headroom exists between the type
+           block and the couple, so the full +20px cannot be afforded here.
+           Keep a smaller increase rather than pushing type onto them. */
+        @media (max-width: 860px) and (max-height: 700px) and (orientation: portrait) {
+            .hero-copy { padding-block: calc(clamp(68px,9vh,96px) + 6px) 0; }
         }
 
         .js-anim .hero-media  { transform: scale(1.05); }
