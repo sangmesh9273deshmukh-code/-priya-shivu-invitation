@@ -681,6 +681,7 @@
                       letter-spacing:.12em; color:var(--paper-1); white-space:nowrap; }
         .event-when:has(.event-when-sub) { text-align:right; }
         .event-when-sub { display:block; margin-top:6px; font-size:.88em; letter-spacing:.08em; color:var(--paper-2); }
+        .event-when-sub:first-child { margin-top:0; }
         .event-place { grid-column:1/-1; font-family:var(--font-sans); font-size:13px; font-weight:400;
                        color:var(--paper-2); margin-top:8px; letter-spacing:.02em; }
         .event-open { grid-column:1/-1; margin-top:14px; display:inline-flex; align-items:center; gap:9px;
@@ -1428,7 +1429,7 @@
                 <button class="event-row" onclick="openEventModal('wedding')" aria-haspopup="dialog">
                     <span class="event-date"><span class="en-inline">15 Nov 2026</span><span class="kn-inline kn-font kn-label">೧೫ ನವೆಂ ೨೦೨೬</span></span>
                     <span class="event-name"><span class="en-inline">Wedding</span><span class="kn-inline kn-font kn-d3">ವಿವಾಹ</span></span>
-                    <span class="event-when"><span class="en-inline">8:00 AM</span><span class="kn-inline kn-font kn-label">ಬೆಳಿಗ್ಗೆ ೮:೦೦</span><span class="event-when-sub"><span class="en-inline">Devara Akshate · 9:10 AM</span><span class="kn-inline kn-font kn-label">ದೇವರ ಅಕ್ಷತೆ · ಬೆಳಿಗ್ಗೆ ೯:೧೦</span></span><span class="event-when-sub"><span class="en-inline">Mantra Akshate · 12:21 PM</span><span class="kn-inline kn-font kn-label">ಮಂತ್ರ ಅಕ್ಷತೆ · ಮಧ್ಯಾಹ್ನ ೧೨:೨೧</span></span></span>
+                    <span class="event-when"><span class="event-when-sub"><span class="en-inline">Devara Akshate · 9:10 AM</span><span class="kn-inline kn-font kn-label">ದೇವರ ಅಕ್ಷತೆ · ಬೆಳಿಗ್ಗೆ ೯:೧೦</span></span><span class="event-when-sub"><span class="en-inline">Mantra Akshate · 12:21 PM</span><span class="kn-inline kn-font kn-label">ಮಂತ್ರ ಅಕ್ಷತೆ · ಮಧ್ಯಾಹ್ನ ೧೨:೨೧</span></span></span>
                     <span class="event-place"><span class="en-inline">Deshmukh Nivas, Mangalgi, Tq. Kalgi, Dist. Kalaburagi</span><span class="kn-inline kn-font kn-label">ದೇಶಮುಖ ನಿವಾಸ, ಮಂಗಲಗಿ, ತಾ. ಕಾಳಗಿ, ಜಿ. ಕಲಬುರಗಿ</span></span>
                     <span class="event-open"><span class="en-inline">View details</span><span class="kn-inline kn-font kn-label">ವಿವರ</span><span class="arw" aria-hidden="true"></span></span>
                 </button>
