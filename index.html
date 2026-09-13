@@ -679,6 +679,8 @@
                       line-height:1.02; color:var(--ivory); }
         .event-when { font-family:var(--font-sans); font-size:clamp(12px,1.5vw,13.5px); font-weight:500;
                       letter-spacing:.12em; color:var(--paper-1); white-space:nowrap; }
+        .event-when:has(.event-when-sub) { text-align:right; }
+        .event-when-sub { display:block; margin-top:6px; font-size:.88em; letter-spacing:.08em; color:var(--paper-2); }
         .event-place { grid-column:1/-1; font-family:var(--font-sans); font-size:13px; font-weight:400;
                        color:var(--paper-2); margin-top:8px; letter-spacing:.02em; }
         .event-open { grid-column:1/-1; margin-top:14px; display:inline-flex; align-items:center; gap:9px;
@@ -1329,7 +1331,7 @@
                         </p>
                         <p class="family-names">
                             <span class="en-text">Nagendrarao &amp; Sangeeta Deshmukh</span>
-                            <span class="kn-text kn-font">ನಾಗೇಂದ್ರರಾವ್ ಮತ್ತು ಸಂಗೀತಾ ದೇಶಮುಖ್</span>
+                            <span class="kn-text kn-font">ನಾಗೇಂದ್ರರಾವ್ ಮತ್ತು ಸಂಗೀತಾ ದೇಶಮುಖ</span>
                             <span class="en-text">Ishwar Kadari &amp; the late Shaila Kadari</span>
                             <span class="kn-text kn-font">ಈಶ್ವರ್ ಕದರಿ ಮತ್ತು ದಿವಂಗತ ಶೈಲಾ ಕದರಿ</span>
                         </p>
@@ -1381,7 +1383,7 @@
                         </h3>
                         <p class="body-copy story-body">
                             <span class="en-text">Turmeric in the morning, music by evening, and vows at first light at Deshmukh Nivas. Your presence is the part we are looking forward to most.</span>
-                            <span class="kn-text kn-font kn-body">ಬೆಳಿಗ್ಗೆ ಅರಿಶಿಣ, ಸಂಜೆ ಸಂಗೀತ, ಮತ್ತು ದೇಶಮುಖ್ ನಿವಾಸದಲ್ಲಿ ಮೊದಲ ಬೆಳಕಿನಲ್ಲಿ ವಿವಾಹ. ನಿಮ್ಮ ಉಪಸ್ಥಿತಿಯೇ ನಾವು ಅತ್ಯಂತ ಎದುರುನೋಡುತ್ತಿರುವುದು.</span>
+                            <span class="kn-text kn-font kn-body">ಬೆಳಿಗ್ಗೆ ಅರಿಶಿಣ, ಸಂಜೆ ಸಂಗೀತ, ಮತ್ತು ದೇಶಮುಖ ನಿವಾಸದಲ್ಲಿ ಮೊದಲ ಬೆಳಕಿನಲ್ಲಿ ವಿವಾಹ. ನಿಮ್ಮ ಉಪಸ್ಥಿತಿಯೇ ನಾವು ಅತ್ಯಂತ ಎದುರುನೋಡುತ್ತಿರುವುದು.</span>
                         </p>
                     </div>
                 </article>
@@ -1426,8 +1428,8 @@
                 <button class="event-row" onclick="openEventModal('wedding')" aria-haspopup="dialog">
                     <span class="event-date"><span class="en-inline">15 Nov 2026</span><span class="kn-inline kn-font kn-label">೧೫ ನವೆಂ ೨೦೨೬</span></span>
                     <span class="event-name"><span class="en-inline">Wedding</span><span class="kn-inline kn-font kn-d3">ವಿವಾಹ</span></span>
-                    <span class="event-when"><span class="en-inline">8:00 AM</span><span class="kn-inline kn-font kn-label">ಬೆಳಿಗ್ಗೆ ೮:೦೦</span></span>
-                    <span class="event-place"><span class="en-inline">Deshmukh Nivas, Mangalgi, Tq. Kalgi, Dist. Kalaburagi</span><span class="kn-inline kn-font kn-label">ದೇಶಮುಖ್ ನಿವಾಸ, ಮಂಗಲಗಿ, ತಾ. ಕಲಗಿ, ಜಿ. ಕಲಬುರಗಿ</span></span>
+                    <span class="event-when"><span class="en-inline">8:00 AM</span><span class="kn-inline kn-font kn-label">ಬೆಳಿಗ್ಗೆ ೮:೦೦</span><span class="event-when-sub"><span class="en-inline">Devara Akshate · 9:10 AM</span><span class="kn-inline kn-font kn-label">ದೇವರ ಅಕ್ಷತೆ · ಬೆಳಿಗ್ಗೆ ೯:೧೦</span></span><span class="event-when-sub"><span class="en-inline">Mantra Akshate · 12:21 PM</span><span class="kn-inline kn-font kn-label">ಮಂತ್ರ ಅಕ್ಷತೆ · ಮಧ್ಯಾಹ್ನ ೧೨:೨೧</span></span></span>
+                    <span class="event-place"><span class="en-inline">Deshmukh Nivas, Mangalgi, Tq. Kalgi, Dist. Kalaburagi</span><span class="kn-inline kn-font kn-label">ದೇಶಮುಖ ನಿವಾಸ, ಮಂಗಲಗಿ, ತಾ. ಕಾಳಗಿ, ಜಿ. ಕಲಬುರಗಿ</span></span>
                     <span class="event-open"><span class="en-inline">View details</span><span class="kn-inline kn-font kn-label">ವಿವರ</span><span class="arw" aria-hidden="true"></span></span>
                 </button>
                 <button class="event-row" onclick="openEventModal('reception')" aria-haspopup="dialog">
@@ -1465,11 +1467,11 @@
                 <div class="ornate-frame bg-white/80 p-10 md:p-14 max-w-xl mx-auto border border-gold/30 shadow-soft">
                     <h3 class="text-3xl md:text-4xl font-body text-maroon font-bold mb-2">
                         <span class="en-inline">Deshmukh Nivas</span>
-                        <span class="kn-inline kn-font kn-d3">ದೇಶಮುಖ್ ನಿವಾಸ</span>
+                        <span class="kn-inline kn-font kn-d3">ದೇಶಮುಖ ನಿವಾಸ</span>
                     </h3>
                     <p class="text-base md:text-lg text-earth-deep font-body mb-2 leading-relaxed">
                         <span class="en-text">Mangalgi, Tq. Kalgi, Dist. Kalaburagi, Karnataka</span>
-                        <span class="kn-text kn-font kn-body">ಮಂಗಲಗಿ, ತಾ. ಕಲಗಿ, ಜಿ. ಕಲಬುರಗಿ, ಕರ್ನಾಟಕ</span>
+                        <span class="kn-text kn-font kn-body">ಮಂಗಲಗಿ, ತಾ. ಕಾಳಗಿ, ಜಿ. ಕಲಬುರಗಿ, ಕರ್ನಾಟಕ</span>
                     </p>
                     <p class="font-ui text-[11.5px] font-semibold tracking-wider uppercase mb-8" style="color:var(--gold-ink)">
                         <span class="en-inline">15 November 2026 · 8:00 AM</span>
@@ -1948,8 +1950,12 @@
                 nameEn: 'Wedding Ceremony', nameKn: 'ವಿವಾಹ ಸಮಾರಂಭ',
                 dateEn: '15 November 2026', dateKn: '೧೫ ನವೆಂಬರ್ ೨೦೨೬',
                 timeEn: '8:00 AM', timeKn: 'ಬೆಳಿಗ್ಗೆ ೮:೦೦',
-                venueEn: 'Deshmukh Nivas', venueKn: 'ದೇಶಮುಖ್ ನಿವಾಸ',
-                addressEn: 'Mangalgi, Tq. Kalgi, Dist. Kalaburagi, Karnataka', addressKn: 'ಮಂಗಲಗಿ, ತಾ. ಕಲಗಿ, ಜಿ. ಕಲಬುರಗಿ, ಕರ್ನಾಟಕ',
+                muhurta: [
+                    { labEn: 'Devara Akshate', labKn: 'ದೇವರ ಅಕ್ಷತೆ', timeEn: '9:10 AM',  timeKn: 'ಬೆಳಿಗ್ಗೆ ೯:೧೦' },
+                    { labEn: 'Mantra Akshate', labKn: 'ಮಂತ್ರ ಅಕ್ಷತೆ', timeEn: '12:21 PM', timeKn: 'ಮಧ್ಯಾಹ್ನ ೧೨:೨೧' }
+                ],
+                venueEn: 'Deshmukh Nivas', venueKn: 'ದೇಶಮುಖ ನಿವಾಸ',
+                addressEn: 'Mangalgi, Tq. Kalgi, Dist. Kalaburagi, Karnataka', addressKn: 'ಮಂಗಲಗಿ, ತಾ. ಕಾಳಗಿ, ಜಿ. ಕಲಬುರಗಿ, ಕರ್ನಾಟಕ',
                 descEn: 'The sacred ceremony where two souls unite in the presence of the holy fire, family, and divine blessings for an eternal bond.',
                 descKn: 'ಪವಿತ್ರ ಅಗ್ನಿ, ಕುಟುಂಬ ಮತ್ತು ದೈವಿಕ ಆಶೀರ್ವಾದಗಳ ಸಮ್ಮುಖದಲ್ಲಿ ಎರಡು ಆತ್ಮಗಳು ಶಾಶ್ವತ ಬಂಧದಲ್ಲಿ ಒಂದಾಗುವ ಪವಿತ್ರ ಸಮಾರಂಭ.',
                 mapUrl: 'https://maps.app.goo.gl/spyfyeM6DDemNXt78'
@@ -2068,6 +2074,7 @@
                 <div class="modal-scroll">
                 <div class="modal-detail-grid">
                     ${row('Time', 'ಸಮಯ', d.timeEn, d.timeKn)}
+                    ${(d.muhurta || []).map(m => row(m.labEn, m.labKn, m.timeEn, m.timeKn)).join('')}
                     ${row('Venue', 'ಸ್ಥಳ', d.venueEn, d.venueKn)}
                     ${row('Address', 'ವಿಳಾಸ', d.addressEn, d.addressKn)}
                     ${d.dressCodeEn ? row('Dress Code', 'ಉಡುಗೆ ಸಂಹಿತೆ', d.dressCodeEn, d.dressCodeKn) : ''}
